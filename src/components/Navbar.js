@@ -43,8 +43,8 @@ export default function Navbar() {
             className="transition-all duration-300"
           />
           <span
-            className={`ml-2 text-3xl font-bold uppercase transition-all duration-300 ${
-              isScrolled ? 'text-[#FFD700]' : 'text-white'
+            className={`ml-2 text-3xl font-bold uppercase transition-all duration-300  ${
+              isScrolled ? 'text-[#FFD700] text-2xl' : 'text-white'
             }`}
           >
             ALVYNE
@@ -106,7 +106,7 @@ export default function Navbar() {
                 { name: 'Contact Us', href: '/contact' },
                 { name: 'One Page', href: '/one-page' },
               ].map((item) => (
-                <li key={item.href} className="border-b border-gray-200 last:border-b-0 pt-4">
+                <li key={item.href} className="border-b border-gray-200  pt-4">
                   <Link
                     href={item.href}
                     className={`block py-2 px-4 ${

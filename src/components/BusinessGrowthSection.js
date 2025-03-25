@@ -33,9 +33,7 @@ export default function BusinessGrowthSection() {
             From tax planning and auditing to investment strategies and business consulting, we help you navigate financial complexities with ease.
           </p>
 
-          <button className="mt-6 px-6 py-3 bg-[#FFD700] text-black font-semibold rounded-lg hover:bg-[#E6C200] transition">
-            Learn More
-          </button>
+         
         </div>
 
         {/* Right Stats Grid - Responsive */}

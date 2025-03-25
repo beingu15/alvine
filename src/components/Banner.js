@@ -73,13 +73,13 @@ const BannerCarousel = () => {
             />
 
             <div className="absolute inset-0 flex flex-col items-start justify-center px-15 xl:px-24 lg:px-24 md:px-18 sm:px-20 text-[#C0C0C0]">
-              <h3 className="text-xl xl:text-2xl lg:text-2xl md:text-2xl sm:text-2xl font-semibold text-[#FFD700] mb-2 xl:mb-1.5 lg:mb-1 md:mb-1 sm:mb-0.5">
+              <h3 className="text-2xl xl:text-2xl lg:text-2xl md:text-2xl sm:text-2xl font-semibold text-[#FFD700] mb-8 xl:mb-1.5 lg:mb-1 md:mb-1 sm:mb-0.5">
                 {slide.subtitle}
               </h3>
-              <h2 className="text-2xl xl:text-5xl lg:text-6xl md:text-5xl sm:text-4xl font-bold max-w-3xl mb-4 xl:mb-3 lg:mb-2 md:mb-2 sm:mb-1">
+              <h2 className="text-3xl xl:text-5xl lg:text-6xl md:text-5xl sm:text-4xl font-bold max-w-3xl mb-8 xl:mb-3 lg:mb-2 md:mb-2 sm:mb-1">
                 {slide.title}
               </h2>
-              <p className="text-lg xl:text-lg lg:text-base md:text-sm sm:text-xs max-w-xl mb-6 xl:mb-5 lg:mb-4 md:mb-3 sm:mb-2">
+              <p className="text-lg xl:text-lg lg:text-base md:text-sm sm:text-xs max-w-xl mb-8 xl:mb-5 lg:mb-4 md:mb-3 sm:mb-2">
                 SUBTITLE SPACE
               </p>
               <Button className="bg-[#FFD700] hover:bg-[#E6C200] text-black px-10 xl:px-8 lg:px-6 md:px-4 py-3 lg:py-2 md:py-1 rounded-full text-lg xl:text-base lg:text-sm md:text-xs sm:text-xs">

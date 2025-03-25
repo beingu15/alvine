@@ -58,7 +58,7 @@ export default function ServicesSection() {
               <h3 className="text-xl font-semibold text-white">{service.title}</h3>
               <p className="mt-2 text-[#B0B0B0]">{service.description}</p>
               <motion.button 
-                className="mt-4 text-base bg-[#FFD700] hover:bg-[#C5A600] text-black px-4 py-1 rounded-3xl font-bold transition"
+                className="mt-4 text-sm bg-[#FFD700] hover:bg-[#C5A600] text-black px-4 py-1 rounded-3xl font-bold transition"
                 whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 0.95 }}
               >
