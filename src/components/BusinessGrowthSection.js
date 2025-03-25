@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { NumberTicker } from "./magicui/number-ticker";
+import { FaPlus } from "react-icons/fa"; // Import Plus Icon
 
 export default function BusinessGrowthSection() {
   return (
@@ -22,8 +23,8 @@ export default function BusinessGrowthSection() {
             Expert Chartered Accountants & Business Advisors
           </h4>
           <h2 className="text-3xl md:text-5xl font-bold mt-2">
-            Financial solutions tailored for your {" "}
-            <span className="text-green-500">business success</span>
+            Financial solutions tailored for your{" "}
+            <span className="text-[#FFD700]">business success</span>
           </h2>
           <p className="mt-4 text-gray-300">
             Our team of certified Chartered Accountants provides strategic financial insights, ensuring compliance, efficiency, and growth for businesses of all sizes.
@@ -32,7 +33,7 @@ export default function BusinessGrowthSection() {
             From tax planning and auditing to investment strategies and business consulting, we help you navigate financial complexities with ease.
           </p>
 
-          <button className="mt-6 px-6 py-3 bg-green-500 text-black font-semibold rounded-lg hover:bg-green-600 transition">
+          <button className="mt-6 px-6 py-3 bg-[#FFD700] text-black font-semibold rounded-lg hover:bg-[#E6C200] transition">
             Learn More
           </button>
         </div>
@@ -47,14 +48,17 @@ export default function BusinessGrowthSection() {
           ].map((stat, index) => (
             <div
               key={index}
-              className="bg-gray-800 bg-opacity-60 p-6 text-center rounded-lg"
+              className="bg-gray-900 bg-opacity-80 p-6 text-center rounded-lg shadow-sm shadow-[#FFD700]"
             >
-              {/* Number Ticker */}
-              <NumberTicker
-                value={stat.number}
-                duration={2.5} // Adjust the animation duration
-                className="text-3xl font-bold text-green-400"
-              />
+              {/* Number Ticker + Plus Icon */}
+              <div className="flex items-center justify-center space-x-2">
+                <NumberTicker
+                  value={stat.number}
+                  duration={2.5} // Adjust the animation duration
+                  className="text-3xl font-bold text-[#FFD700]"
+                />
+                <FaPlus className="text-[#FFD700] text-lg" />
+              </div>
               <p className="text-gray-300">{stat.label}</p>
             </div>
           ))}

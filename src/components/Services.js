@@ -30,10 +30,10 @@ export default function ServicesSection() {
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
       >
-        Chartered Accountant & <span className="text-green-500">Financial Services</span>
+        Chartered Accountant & <span className="text-[#FFD700]">Financial Services</span>
       </motion.h2>
       <motion.p 
-        className="mt-2 text-gray-400"
+        className="mt-2 text-[#B0B0B0]"
         initial={{ opacity: 0, y: -20 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
@@ -45,7 +45,7 @@ export default function ServicesSection() {
         {services.map((service, index) => (
           <motion.div 
             key={index} 
-            className="text-black rounded-lg shadow-lg shadow-amber-50 overflow-hidden"
+            className="text-black rounded-lg shadow-lg shadow-[#AFAFAF] overflow-hidden"
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: index * 0.2 }}
@@ -56,9 +56,9 @@ export default function ServicesSection() {
             </div>
             <div className="p-6 text-left">
               <h3 className="text-xl font-semibold text-white">{service.title}</h3>
-              <p className="mt-2 text-zinc-100">{service.description}</p>
+              <p className="mt-2 text-[#B0B0B0]">{service.description}</p>
               <motion.button 
-                className="mt-4 text-base bg-green-500 hover:bg-green-600 text-white px-4 py-1 rounded-3xl font-bold transition"
+                className="mt-4 text-base bg-[#FFD700] hover:bg-[#C5A600] text-black px-4 py-1 rounded-3xl font-bold transition"
                 whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 0.95 }}
               >

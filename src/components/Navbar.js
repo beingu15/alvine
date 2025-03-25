@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
+import Image from 'next/image';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { Menu, X } from 'lucide-react';
@@ -9,7 +10,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
-  const pathname = usePathname(); // Get the current route
+  const pathname = usePathname();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -20,40 +21,39 @@ export default function Navbar() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // Animation variants for mobile menu
   const menuVariants = {
-    open: {
-      opacity: 1,
-      y: 0,
-      transition: { type: 'spring', stiffness: 300, damping: 24 },
-    },
-    closed: {
-      opacity: 0,
-      y: -20,
-      transition: { duration: 0.2 },
-    },
+    open: { opacity: 1, y: 0, transition: { type: 'spring', stiffness: 300, damping: 24 } },
+    closed: { opacity: 0, y: -20, transition: { duration: 0.2 } },
   };
 
   return (
     <nav
       className={`w-full top-0 left-0 z-50 transition-all duration-300 ${
-        isScrolled ? 'fixed bg-white shadow-md' : 'relative bg-transparent'
+        isScrolled ? 'fixed bg-black shadow-md' : 'relative bg-transparent'
       }`}
     >
       <div className="container mx-auto flex items-center justify-between px-6 py-4">
-        {/* Logo */}
-        <Link
-          href="/"
-          className={`text-2xl font-bold uppercase ${
-            isScrolled ? 'text-green-600' : 'text-white'
-          }`}
-        >
-          Finance Business
+        {/* Logo & Brand Name */}
+        <Link href="/" className="flex items-center space-x-2">
+          <Image
+            src="/logo.png" // 🔹 Replace with actual logo path
+            alt="Alvyne Logo"
+            width={isScrolled ? 40 : 50} // 🔺 Increased Logo Size
+            height={isScrolled ? 40 : 50}
+            className="transition-all duration-300"
+          />
+          <span
+            className={`ml-2 text-3xl font-bold uppercase transition-all duration-300 ${
+              isScrolled ? 'text-[#FFD700]' : 'text-white'
+            }`}
+          >
+            ALVYNE
+          </span>
         </Link>
 
-        {/* Mobile Menu Button with Rotation Effect */}
+        {/* Mobile Menu Button */}
         <button
-          className="lg:hidden text-green-600 focus:outline-none"
+          className="lg:hidden text-[#FFD700] focus:outline-none"
           onClick={() => setIsOpen(!isOpen)}
         >
           <motion.div
@@ -78,11 +78,11 @@ export default function Navbar() {
               href={item.href}
               className={`mx-6 font-light ${
                 pathname === item.href
-                  ? 'text-green-600 border-b-2 border-green-600' // ✅ Green with underline (Desktop)
+                  ? 'text-[#FFD700] border-b-2 border-[#FFD700]' // Gold with underline (Active)
                   : isScrolled
-                  ? 'text-black'
+                  ? 'text-[#B0B0B0]' // Silver when scrolled
                   : 'text-white'
-              } hover:text-green-600`}
+              } hover:text-[#FFD700]`}
             >
               {item.name}
             </Link>
@@ -93,7 +93,7 @@ export default function Navbar() {
         <AnimatePresence>
           {isOpen && (
             <motion.ul
-              className="absolute top-full left-0 w-full lg:hidden bg-white text-center shadow-md"
+              className="absolute top-full left-0 w-full lg:hidden bg-black text-center shadow-md"
               variants={menuVariants}
               initial="closed"
               animate="open"
@@ -110,10 +110,8 @@ export default function Navbar() {
                   <Link
                     href={item.href}
                     className={`block py-2 px-4 ${
-                      pathname === item.href
-                        ? 'text-green-600' // ✅ Green (Mobile) but NO underline
-                        : 'text-gray-800'
-                    } hover:text-green-600`}
+                      pathname === item.href ? 'text-[#FFD700]' : 'text-white'
+                    } hover:text-[#FFD700]`}
                     onClick={() => setIsOpen(false)}
                   >
                     {item.name}
