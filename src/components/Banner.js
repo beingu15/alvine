@@ -70,6 +70,7 @@ const BannerCarousel = () => {
               alt={slide.title}
               fill
               className="object-cover brightness-80"
+              priority
             />
 
             <div className="absolute inset-0 flex flex-col items-start justify-center px-15 xl:px-24 lg:px-24 md:px-18 sm:px-20 text-[#C0C0C0]">
