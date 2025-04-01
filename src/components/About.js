@@ -3,9 +3,13 @@
 import Image from 'next/image';
 import { motion } from 'framer-motion';
 
+
+
 export default function AboutCompanySection() {
   return (
+    
     <section className="relative bg-black text-white py-16 flex flex-col md:flex-row items-center mx-auto px-6 md:px-12 overflow-hidden">
+    
       {/* Left Image Section */}
       <motion.div 
         className="md:w-1/2 relative w-full h-96 md:h-[500px]"

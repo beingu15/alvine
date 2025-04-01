@@ -68,7 +68,7 @@ export default function Navbar() {
         <div className="hidden lg:flex space-x-6">
           {[
             { name: 'Home', href: '/' },
-            { name: 'About Us', href: '/about' },
+            { name: 'About Us', href: '/About' },
             { name: 'Our Services', href: '/services' },
             { name: 'Contact Us', href: '/contact' },
             { name: 'One Page', href: '/one-page' },
@@ -101,7 +101,7 @@ export default function Navbar() {
             >
               {[
                 { name: 'Home', href: '/' },
-                { name: 'About Us', href: '/about' },
+                { name: 'About Us', href: '/About' },
                 { name: 'Our Services', href: '/services' },
                 { name: 'Contact Us', href: '/contact' },
                 { name: 'One Page', href: '/one-page' },

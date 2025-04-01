@@ -49,14 +49,14 @@ const BannerCarousel = () => {
       {/* Custom Navigation Buttons */}
       <button
         onClick={() => sliderRef.current?.slickPrev()}
-        className="absolute left-4 top-1/2 transform -translate-y-1/2 z-10 text-[#FFD700] hover:bg-opacity-80"
+        className="absolute left-4 top-1/2 transform -translate-y-1/2 z-10 text-white hover:bg-opacity-80"
       >
         <ChevronLeft size={32} />
       </button>
 
       <button
         onClick={() => sliderRef.current?.slickNext()}
-        className="absolute right-4 top-1/2 transform -translate-y-1/2 z-10 text-[#FFD700] hover:bg-opacity-80"
+        className="absolute right-4 top-1/2 transform -translate-y-1/2 z-10 text-white hover:bg-opacity-80"
       >
         <ChevronRight size={32} />
       </button>
@@ -77,7 +77,7 @@ const BannerCarousel = () => {
               <h3 className="text-2xl xl:text-2xl lg:text-2xl md:text-2xl sm:text-2xl font-semibold text-[#FFD700] mb-8 xl:mb-1.5 lg:mb-1 md:mb-1 sm:mb-0.5">
                 {slide.subtitle}
               </h3>
-              <h2 className="text-3xl xl:text-5xl lg:text-6xl md:text-5xl sm:text-4xl font-bold max-w-3xl mb-8 xl:mb-3 lg:mb-2 md:mb-2 sm:mb-1">
+              <h2 className="text-amber-50 text-3xl xl:text-5xl lg:text-6xl md:text-5xl sm:text-4xl font-bold max-w-3xl mb-8 xl:mb-3 lg:mb-2 md:mb-2 sm:mb-1">
                 {slide.title}
               </h2>
               <p className="text-lg xl:text-lg lg:text-base md:text-sm sm:text-xs max-w-xl mb-8 xl:mb-5 lg:mb-4 md:mb-3 sm:mb-2">

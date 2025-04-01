@@ -1,5 +1,5 @@
 
-import Footer from "@/components/Footer";
+
 
 import Services from "@/components/Services";
 import SubHeader from "@/components/SubHeader";
@@ -28,7 +28,7 @@ export default function Home() {
         <Services/>
         <BusinessGrowthSection/>
         <AboutCompanySection/>
-        <Footer />
+      
       </main>
     </div>
   );
