@@ -78,7 +78,7 @@ export default function About() {
       </motion.div>
 
       {/* Team Section */}
-      <div className="bg-gray-50 py-12">
+      <div className="bg-gray-100 py-12 px-6">
         <div className="container mx-auto text-center">
           <h2 className="text-3xl sm:text-4xl font-bold text-gray-900">
             Our team <span className="text-[#FFD700]">members</span>
@@ -139,7 +139,7 @@ export default function About() {
         <motion.div 
           key={index} 
           whileHover={{ scale: 1.05 }}
-          className="bg-blue-50 shadow-lg rounded-lg overflow-hidden transform transition-all duration-300 ease-in-out flex flex-col items-center p-6 hover:shadow-2xl"
+          className=" shadow-lg rounded-lg overflow-hidden transform transition-all duration-300 ease-in-out flex flex-col items-center p-6 hover:shadow-2xl"
         >
           {/* Icon with Gradient Background */}
           <div className="bg-gradient-to-r from-[#FFD700] to-[#FFB700] p-4 rounded-full mb-4">
@@ -148,7 +148,7 @@ export default function About() {
           <h3 className="text-xl sm:text-2xl font-bold text-[#FFD700] mt-2 tracking-wide">
             {item.title}
           </h3>
-          <p className="text-gray-600 mt-2 text-base sm:text-lg text-center">
+          <p className="text-white mt-2 text-base sm:text-lg text-center">
             {item.desc}
           </p>
         </motion.div>
