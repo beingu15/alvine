@@ -13,10 +13,10 @@ const Footer = () => {
           <ul className="space-y-2">
             {[
               { name: 'Home', href: '/' },
-              { name: 'About Us', href: '/About-Us' },
-              { name: 'Companies', href: '/Companies' },
-              { name: 'Media', href: '/media' },
-              { name: 'Contact Us', href: '/Contact-Us' },
+              { name: 'About Us', href: '/About' },
+             
+              { name: 'Services', href: '/Services' },
+              { name: 'Contact Us', href: '/Contact' },
             ].map((link) => (
               <li key={link.href}>
                 <Link href={link.href} className="hover:text-[var(--primary-color)] transition">
@@ -72,7 +72,7 @@ const Footer = () => {
       {/* Bottom Section */}
       <div className="mt-10 text-center border-t border-gray-700 pt-4">
         <Image src="/next.svg" alt="Logo" width={50} height={50} className="mx-auto mb-2" />
-        <p className="text-gray-500 text-xs">© {new Date().getFullYear()} by LAVIZZA</p>
+        <p className="text-gray-500 text-xs">© {new Date().getFullYear()} by ALVYNE</p>
         <Link href="/TermsOfService" className="text-gray-500 text-sm hover:text-[var(--primary-color)]">
           Terms of Service
         </Link>

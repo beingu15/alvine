@@ -70,7 +70,7 @@ export default function Navbar() {
             { name: 'Home', href: '/' },
             { name: 'About Us', href: '/About' },
             { name: 'Our Services', href: '/Services' },
-            { name: 'Contact Us', href: '/contact' },
+            { name: 'Contact Us', href: '/Contact' },
             { name: 'One Page', href: '/one-page' },
           ].map((item) => (
             <Link
@@ -103,8 +103,8 @@ export default function Navbar() {
                 { name: 'Home', href: '/' },
                 { name: 'About Us', href: '/About' },
                 { name: 'Our Services', href: '/Services' },
-                { name: 'Contact Us', href: '/contact' },
-                { name: 'One Page', href: '/one-page' },
+                { name: 'Contact Us', href: '/Contact' },
+                
               ].map((item) => (
                 <li key={item.href} className="border-b border-gray-200  pt-4">
                   <Link

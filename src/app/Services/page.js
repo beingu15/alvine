@@ -42,7 +42,7 @@ export default function Services() {
       {/* Hero Section */}
       <div className="relative w-full h-80 md:h-96 flex items-center justify-center bg-black">
         <Image src="/bg-about.jpg" alt="Financial Services" layout="fill" objectFit="cover" className="absolute z-0" />
-        <div className="relative z-10 text-center text-white px-6">
+        <div className="relative z-10 text-center text-white px-6 mt-20">
           <motion.h1 initial={{ x: -100, opacity: 0 }} animate={{ x: 0, opacity: 1 }} transition={{ duration: 1 }} className="text-3xl sm:text-4xl md:text-5xl font-bold">
             Our Services
           </motion.h1>
@@ -86,9 +86,14 @@ export default function Services() {
           {/* Tabs */}
           <div className="flex md:flex-col overflow-x-auto md:overflow-visible space-x-3 md:space-x-0 md:space-y-4 pb-4 md:pb-0 w-full md:w-1/3">
             {services.map((service, index) => (
-              <button key={index} onClick={() => setSelected(index)} className={`py-3 px-4 font-semibold text-sm transition-all border-2 border-[#FFD700] ${selected === index ? 'bg-[#FFD700] text-black' : 'bg-transparent text-black hover:bg-[#FFD700]'}`}>
-                {service.title}
-              </button>
+             <button 
+             key={index} 
+             onClick={() => setSelected(index)} 
+             className={`py-3 px-4 md:py-4 md:px-6 font-semibold text-sm md:text-base transition-all border-2 border-[#FFD700] 
+             ${selected === index ? 'bg-[#FFD700] text-black' : 'bg-transparent text-black hover:bg-[#FFD700]'}`}>
+             {service.title}
+           </button>
+           
             ))}
           </div>
           {/* Content */}
