@@ -31,7 +31,7 @@ export default function ServicesSection() {
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
       >
-        Chartered Accountant & <span className="text-[#FFD700]">Financial Services</span>
+        Financial<span className="text-[#FFD700]"> Services</span>
       </motion.h2>
       <motion.p 
         className="mt-2 text-[#B0B0B0]"

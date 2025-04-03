@@ -66,11 +66,11 @@ export default function About() {
           >
             <h2 className="text-3xl font-bold text-[#FFD700] mb-6 text-center">Get in Touch</h2>
             <div className="space-y-6">
-              {[{ icon: BsGeoAlt, label: 'Our Office', info: 'Lavizza, Main Street' },
-                { icon: BsEnvelopeOpen, label: 'Email Us', info: 'contact@lavizza.com' },
+              {[{ icon: BsGeoAlt, label: 'Our Office', info: 'Alvine, Main Street' },
+                { icon: BsEnvelopeOpen, label: 'Email Us', info: 'contact@Alvine.com' },
                 { icon: BsPhoneVibrate, label: 'Call Us', info: '+1 000 000 0000' }].map((item, index) => (
                   <div key={index} className="flex items-center space-x-4 hover:scale-105 transition-transform">
-                    <div className="p-4 bg-[#FFD700] text-white rounded-full shadow-lg">
+                    <div className="p-4 bg-[#FFD700] text-black rounded-full shadow-lg">
                       <item.icon size={24} />
                     </div>
                     <div>

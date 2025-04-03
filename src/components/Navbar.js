@@ -29,7 +29,7 @@ export default function Navbar() {
   return (
     <nav
       className={`w-full top-0 left-0 z-50 transition-all duration-300 ${
-        isScrolled ? 'fixed bg-black shadow-md' : 'relative bg-transparent'
+        isScrolled ? 'fixed bg-[var(--footer-bg)] shadow-md' : 'relative bg-transparent'
       }`}
     >
       <div className="container mx-auto flex items-center justify-between px-6 py-4">
@@ -71,7 +71,7 @@ export default function Navbar() {
             { name: 'About Us', href: '/About' },
             { name: 'Our Services', href: '/Services' },
             { name: 'Contact Us', href: '/Contact' },
-            { name: 'One Page', href: '/one-page' },
+          
           ].map((item) => (
             <Link
               key={item.href}

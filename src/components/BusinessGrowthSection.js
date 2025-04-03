@@ -27,7 +27,7 @@ export default function BusinessGrowthSection() {
             <span className="text-[#FFD700]">business success</span>
           </h2>
           <p className="mt-4 text-gray-300">
-            Our team of certified Chartered Accountants provides strategic financial insights, ensuring compliance, efficiency, and growth for businesses of all sizes.
+            Our team of Expert Financial Consultants provides strategic financial insights, ensuring compliance, efficiency, and growth for businesses of all sizes.
           </p>
           <p className="mt-2 text-gray-300">
             From tax planning and auditing to investment strategies and business consulting, we help you navigate financial complexities with ease.
@@ -39,10 +39,10 @@ export default function BusinessGrowthSection() {
         {/* Right Stats Grid - Responsive */}
         <div className="md:w-1/2 grid grid-cols-1 sm:grid-cols-2 gap-6 mt-10 md:mt-0 md:ml-10 w-full">
           {[
-            { number: 500, label: "Businesses Assisted" },
-            { number: 1500, label: "Financial Reports Filed" },
-            { number: 850, label: "Tax Strategies Implemented" },
-            { number: 5, label: "Years of Experience" },
+            { number: 10, label: "Businesses Assisted" },
+            { number: 100, label: "Financial Reports Filed" },
+            { number: 50, label: "Tax Strategies Implemented" },
+            { number: 2, label: "Years of Experience" },
           ].map((stat, index) => (
             <div
               key={index}

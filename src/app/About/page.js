@@ -25,7 +25,7 @@ export default function About() {
           objectFit="cover"
           className="absolute z-0"
         />
-        <div className="relative z-10 text-center text-white mt-20">
+        <div className="relative z-10 text-center text-white mt-20 px-6">
           <motion.h1 
             initial={{ x: -100, opacity: 0 }} 
             animate={{ x: 0, opacity: 1 }} 
@@ -41,7 +41,7 @@ export default function About() {
             transition={{ duration: 1 }}
             className="text-base sm:text-lg md:text-xl mt-2"
           >
-            We have over 2 years of experience
+            Empowering your financial future with expert guidance.
           </motion.p>
         </div>
       </div>
@@ -90,8 +90,8 @@ export default function About() {
             className="mt-6 flex flex-wrap justify-center gap-8"
           >
             {[{name: "Albert Pradeep", role: "Founder", image: "/albert.jpg", desc: "Leading our vision and growth strategies."},
-              {name: "Mary Houston", role: "Chief Marketing Officer", image: "/slide1.jpg", desc: "Driving our brand and outreach efforts."},
-              {name: "Paul Walker", role: "Financial Analyst", image: "/slide3.jpg", desc: "Ensuring sound financial strategies."}].map((member, index) => (
+              {name: "Vaishnav Prakash", role: "Founder", image: "/slide1.jpg", desc: "Driving our brand and outreach efforts."},
+              {name: "Nelson Joseph", role: "Founder", image: "/slide3.jpg", desc: "Ensuring sound financial strategies."}].map((member, index) => (
                 <motion.div 
                   key={index} 
                   initial={{ opacity: 0, y: 30 }} 
