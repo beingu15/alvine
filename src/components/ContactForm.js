@@ -2,7 +2,7 @@
 
 export default function ContactForm() {
   return (
-    <div className="bg-white p-8 rounded-lg shadow-lg border border-[#FFD700]">
+    <div className="bg-white p-8 rounded-lg shadow-lg border border-[#FFD700] ">
       <h2 className="text-2xl font-bold text-[#FFD700] mb-6 text-center">Send Us a Message</h2>
       <form>
         <div className="grid grid-cols-1 gap-6">

@@ -8,14 +8,14 @@ import ContactForm from '@/components/ContactForm';
 
 export default function About() {
   return (
-    <div className="relative min-h-screen bg-white">
+    <div className="relative min-h-screen bg-white overflow-hidden">
       {/* Navbar */}
       <div className="absolute left-0 w-full z-50">
         <Navbar />
       </div>
 
       {/* Hero Section */}
-      <div className="relative w-full h-80 md:h-96 flex items-center justify-center overflow-hidden">
+      <div className="relative w-full h-80 md:h-96 flex items-center justify-center ">
         <Image
           src="/slide1.jpg"
           alt="Hero Background"
@@ -24,7 +24,7 @@ export default function About() {
           className="absolute"
         />
         <div className="absolute inset-0 bg-gradient-to-b from-black/50 to-black/20"></div>
-        <div className="relative z-10 text-center text-white px-6 mt-20">
+        <div className="relative z-10 text-center text-white px-6 mt-20 ">
           <motion.h1 
             initial={{ opacity: 0, y: -20 }} 
             animate={{ opacity: 1, y: 0 }} 
@@ -62,7 +62,7 @@ export default function About() {
             initial={{ opacity: 0, x: 50 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 1 }}
-            className="bg-white p-8 rounded-2xl shadow-xl border border-[#FFD700]"
+            className="bg-white p-8 rounded-2xl shadow-xl border border-[#FFD700] "
           >
             <h2 className="text-3xl font-bold text-[#FFD700] mb-6 text-center">Get in Touch</h2>
             <div className="space-y-6">

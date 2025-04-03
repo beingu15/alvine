@@ -17,7 +17,7 @@ export default function About() {
       </div>
       
       {/* Hero Section */}
-      <div className="relative w-full h-80 md:h-96 flex items-center justify-center bg-black">
+      <div className="relative w-full h-80 md:h-96 flex items-center justify-center bg-black overflow-hidden">
         <Image
           src="/slide1.jpg"
           alt="Hero Background"

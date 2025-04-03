@@ -7,6 +7,7 @@ import 'slick-carousel/slick/slick-theme.css';
 import { Button } from '@/components/ui/button';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 import { useRef } from 'react';
+import Link from 'next/link';
 
 const BannerCarousel = () => {
   const sliderRef = useRef(null);
@@ -29,18 +30,21 @@ const BannerCarousel = () => {
       title: 'Financial Analysis & Consulting',
       subtitle: 'We are ready to help you',
       buttonText: 'Contact Us',
+      href: '/Contact',
     },
     {
       image: '/slide2.jpg',
       title: 'Expert Business Solutions',
       subtitle: 'Your growth, our priority',
       buttonText: 'Learn More',
+      href: '/About',
     },
     {
       image: '/slide3.jpg',
       title: 'Strategic Financial Planning',
       subtitle: 'Tailored solutions for your needs',
       buttonText: 'Get Started',
+      href: '/Services',
     },
   ];
 
@@ -83,9 +87,19 @@ const BannerCarousel = () => {
               <p className="text-lg xl:text-lg lg:text-base md:text-sm sm:text-xs max-w-xl mb-8 xl:mb-5 lg:mb-4 md:mb-3 sm:mb-2">
                 SUBTITLE SPACE
               </p>
-              <Button className="bg-[#FFD700] hover:bg-[#E6C200] text-black px-10 xl:px-8 lg:px-6 md:px-4 py-3 lg:py-2 md:py-1 rounded-full text-lg xl:text-base lg:text-sm md:text-xs sm:text-xs">
-                {slide.buttonText}
-              </Button>
+
+              {/* Ensure button is wrapped in Link if href exists */}
+              {slide.href ? (
+                <Link href={slide.href}>
+                  <Button className="bg-[#FFD700] hover:bg-[#E6C200] text-black px-10 xl:px-8 lg:px-6 md:px-4 py-3 lg:py-2 md:py-1 rounded-full text-lg xl:text-base lg:text-sm md:text-xs sm:text-xs">
+                    {slide.buttonText}
+                  </Button>
+                </Link>
+              ) : (
+                <Button className="bg-[#FFD700] hover:bg-[#E6C200] text-black px-10 xl:px-8 lg:px-6 md:px-4 py-3 lg:py-2 md:py-1 rounded-full text-lg xl:text-base lg:text-sm md:text-xs sm:text-xs">
+                  {slide.buttonText}
+                </Button>
+              )}
             </div>
           </div>
         ))}

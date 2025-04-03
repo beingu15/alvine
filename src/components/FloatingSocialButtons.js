@@ -1,37 +1,33 @@
 import React from "react";
-import { FaFacebookF, FaInstagram, FaYoutube } from "react-icons/fa";
+import { FaPhoneAlt, FaWhatsapp, FaEnvelope } from "react-icons/fa";
 
 const FloatingSocialButtons = () => {
   return (
     <div className="fixed bottom-20 right-2 p-2 z-50">
-      {/* Facebook Button */}
+      {/* Phone Button */}
       <a
-        href="https://www.facebook.com"
-        target="_blank"
-        rel="noopener noreferrer"
-        className="block bg-blue-500 hover:bg-blue-600 text-white w-12 h-12 flex items-center justify-center border-b border-gray-200 rounded-full"
+        href="tel:+1234567890"
+        className="block bg-green-600 hover:bg-green-700 text-white w-12 h-12 flex items-center justify-center border-b border-gray-200 rounded-full"
       >
-        <FaFacebookF size={24} />
+        <FaPhoneAlt size={24} />
       </a>
 
-      {/* Instagram Button */}
+      {/* WhatsApp Button */}
       <a
-        href="https://www.instagram.com"
+        href="https://wa.me/1234567890"
         target="_blank"
         rel="noopener noreferrer"
-        className="block bg-pink-500 hover:bg-pink-600 text-white w-12 h-12 flex items-center justify-center border-b border-gray-200 mt-2 rounded-full"
+        className="block bg-green-500 hover:bg-green-600 text-white w-12 h-12 flex items-center justify-center border-b border-gray-200 mt-2 rounded-full"
       >
-        <FaInstagram size={24} />
+        <FaWhatsapp size={24} />
       </a>
 
-      {/* YouTube Button */}
+      {/* Email Button */}
       <a
-        href="https://www.youtube.com"
-        target="_blank"
-        rel="noopener noreferrer"
-        className="block bg-red-500 hover:bg-red-600 text-white w-12 h-12 flex items-center justify-center mt-2 rounded-full border-b border-gray-200 "
+        href="mailto:example@example.com"
+        className="block bg-red-500 hover:bg-red-600 text-white w-12 h-12 flex items-center justify-center mt-2 rounded-full border-b border-gray-200"
       >
-        <FaYoutube size={24} />
+        <FaEnvelope size={24} />
       </a>
     </div>
   );

@@ -2,6 +2,7 @@
 
 import Image from 'next/image';
 import { motion } from 'framer-motion';
+import Link from 'next/link';
 
 const services = [
   {
@@ -57,6 +58,7 @@ export default function ServicesSection() {
             <div className="p-6 text-left">
               <h3 className="text-xl font-semibold text-white">{service.title}</h3>
               <p className="mt-2 text-[#B0B0B0]">{service.description}</p>
+              <Link href={'/About'}>
               <motion.button 
                 className="mt-4 text-sm bg-[#FFD700] hover:bg-[#C5A600] text-black px-4 py-1 rounded-3xl font-bold transition"
                 whileHover={{ scale: 1.1 }}
@@ -64,6 +66,7 @@ export default function ServicesSection() {
               >
                 KNOW MORE
               </motion.button>
+              </Link>
             </div>
           </motion.div>
         ))}

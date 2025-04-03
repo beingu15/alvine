@@ -40,7 +40,7 @@ export default function Services() {
       </div>
 
       {/* Hero Section */}
-      <div className="relative w-full h-80 md:h-96 flex items-center justify-center bg-black">
+      <div className="relative w-full h-80 md:h-96 flex items-center justify-center overflow-hidden">
         <Image src="/bg-about.jpg" alt="Financial Services" layout="fill" objectFit="cover" className="absolute z-0" />
         <div className="relative z-10 text-center text-white px-6 mt-20">
           <motion.h1 initial={{ x: -100, opacity: 0 }} animate={{ x: 0, opacity: 1 }} transition={{ duration: 1 }} className="text-3xl sm:text-4xl md:text-5xl font-bold">

@@ -2,6 +2,7 @@
 
 import Image from 'next/image';
 import { motion } from 'framer-motion';
+import Link from 'next/link';
 
 
 
@@ -53,7 +54,7 @@ export default function AboutCompanySection() {
           <li>✅ Financial Risk Management</li>
           <li>✅ Payroll & Accounting Solutions</li>
         </ul>
-
+<Link href={'/Services'}>
         <motion.button 
           className="mt-6 px-6 py-2 bg-[#FFD700] text-black font-semibold rounded-lg hover:bg-[#E6C200] transition shadow-lg "
           whileHover={{ scale: 1.05 }}
@@ -62,6 +63,7 @@ export default function AboutCompanySection() {
         >
           Learn More
         </motion.button>
+        </Link>
       </motion.div>
     </section>
   );
