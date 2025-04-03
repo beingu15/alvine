@@ -61,10 +61,16 @@ export default function About() {
             Alvyne is a trusted financial services firm specializing in tax filing, ITR consulting, and other financial advisory services. With over 2 years of experience, we help businesses and individuals navigate the complexities of taxation and financial management.
           </p>
           {showMore && (
-            <p className="mt-4 text-base sm:text-lg leading-relaxed">
-              Our expert team is dedicated to providing personalized solutions tailored to your financial needs. Whether you are a startup or an established company, we are here to support your growth with innovative strategies.
-            </p>
-          )}
+  <div className="mt-4 text-base sm:text-lg leading-relaxed">
+    <p>
+      Our expert team is dedicated to providing personalized solutions tailored to your financial needs. Whether you are a startup or an established company, we are here to support your growth with innovative strategies.
+    </p>
+    <p className="mt-4">
+      Our mission is to simplify financial complexities, ensuring you remain tax-efficient while making informed financial decisions. From reducing liabilities to increasing profitability, we are here to guide you every step of the way.
+    </p>
+  </div>
+)}
+
           <button 
             className="mt-4 px-6 py-2 bg-[#FFD700] text-white font-semibold rounded-lg hover:bg-yellow-500 transition"
             onClick={() => setShowMore(!showMore)}

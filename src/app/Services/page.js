@@ -8,26 +8,27 @@ import { motion } from 'framer-motion';
 
 const services = [
   { 
-    title: 'Market Analysis', 
-    content: 'Vivamus sed feugiat elit. Pellentesque pretium, massa at placerat vehicula, neque turpis pulvinar tortor, eget convallis lorem odio non tortor.',
+    title: 'Tax Filing Assistance', 
+    content: 'Get expert guidance to file your taxes accurately and on time, maximizing deductions and ensuring compliance with the latest tax regulations.',
     image: '/slide1.jpg'
   },
   { 
-    title: 'Financial Data', 
-    content: 'Proin eu molestie risus. Etiam suscipit pretium odio, at consectetur nisl. Sed ut dolor in augue cursus ultrices.',
+    title: 'Financial Planning', 
+    content: 'Plan for a secure future with personalized financial strategies, covering investments, savings, and retirement planning.',
     image: '/slide2.jpg'
   },
   { 
-    title: 'Accounting Service', 
-    content: 'Vivamus mauris turpis, auctor vel facilisis in, tincidunt vel diam. Sed vitae scelerisque orci.',
+    title: 'Accounting & Bookkeeping', 
+    content: 'Stay on top of your finances with professional bookkeeping, payroll management, and financial record-keeping services.',
     image: '/slide3.jpg'
   },
   { 
-    title: 'Overall Evaluation', 
-    content: 'Nunc non magna orci. Aliquam commodo mauris ante.',
-    image: '/bg-about.jpg'
+    title: 'Business Tax Consultation', 
+    content: 'Optimize your business tax strategy with expert insights, minimizing liabilities and ensuring compliance with tax laws.',
+    image: '/slide2.jpg'
   }
 ];
+
 
 export default function Services() {
   const [selected, setSelected] = useState(0);

@@ -20,7 +20,7 @@ export default function BusinessGrowthSection() {
         {/* Left Content Section */}
         <div className="md:w-1/2">
           <h4 className="text-sm uppercase tracking-wider text-gray-400">
-            Expert Chartered Accountants & Business Advisors
+            Expert financial consultants & Business Advisors
           </h4>
           <h2 className="text-3xl md:text-5xl font-bold mt-2">
             Financial solutions tailored for your{" "}

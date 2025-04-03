@@ -7,7 +7,7 @@ import Link from 'next/link';
 const services = [
   {
     title: 'Tax Planning & Compliance',
-    description: 'Our expert Chartered Accountants ensure that your business stays compliant with tax regulations while optimizing tax-saving strategies.',
+    description: 'Our expert Financial Consultants ensure that your business stays compliant with tax regulations while optimizing tax-saving strategies.',
     image: '/slide1.jpg',
   },
   {
@@ -59,13 +59,13 @@ export default function ServicesSection() {
               <h3 className="text-xl font-semibold text-white">{service.title}</h3>
               <p className="mt-2 text-[#B0B0B0]">{service.description}</p>
               <Link href={'/About'}>
-              <motion.button 
-                className="mt-4 text-sm bg-[#FFD700] hover:bg-[#C5A600] text-black px-4 py-1 rounded-3xl font-bold transition"
-                whileHover={{ scale: 1.1 }}
-                whileTap={{ scale: 0.95 }}
-              >
-                KNOW MORE
-              </motion.button>
+                <motion.button 
+                  className="mt-4 text-sm border-2 border-[#FFD700] text-[#FFD700] hover:bg-[#FFD700] hover:text-black px-4 py-1 rounded-3xl font-bold transition"
+                  whileHover={{ scale: 1.1 }}
+                  whileTap={{ scale: 0.95 }}
+                >
+                  KNOW MORE
+                </motion.button>
               </Link>
             </div>
           </motion.div>
