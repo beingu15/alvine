@@ -1,0 +1,57 @@
+- .DS_Store
+- .gitignore
+- README.md
+- components.json
+- jsconfig.json
+- next.config.mjs
+- package-lock.json
+- package.json
+- postcss.config.mjs
+- public
+  - Logoalvyne.png
+  - albert.jpg
+  - bg-about.jpg
+  - con.png
+  - file.svg
+  - globe.svg
+  - logo.png
+  - logo.svg
+  - next.svg
+  - slide1.jpg
+  - slide2.jpg
+  - slide3.jpg
+  - vercel.svg
+  - window.svg
+- src
+  - app
+    - About
+      - page.js
+    - Contact
+      - page.js
+    - Services
+      - page.js
+    - favicon.ico
+    - globals.css
+    - layout.js
+    - page.js
+  - components
+    - About.js
+    - Banner.js
+    - BusinessGrowthSection.js
+    - ConnectSection.js
+    - ContactForm.js
+    - FloatingSocialButtons.js
+    - FlowerAnimation.js
+    - Footer.js
+    - Header.js
+    - Navbar.js
+    - Services.js
+    - SubHeader.js
+    - magicui
+      - number-ticker.jsx
+      - pulsating-button.jsx
+      - shiny-button.jsx
+    - ui
+      - button.jsx
+  - lib
+    - utils.js

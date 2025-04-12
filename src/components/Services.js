@@ -25,6 +25,7 @@ const services = [
 export default function ServicesSection() {
   return (
     <section className="py-16 bg-black text-white text-center">
+      
       <motion.h2 
         className="text-3xl md:text-4xl font-bold"
         initial={{ opacity: 0, y: -50 }}
