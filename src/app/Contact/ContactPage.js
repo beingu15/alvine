@@ -47,10 +47,18 @@ export default function Contact() {
           <Image
             src="/slide1.jpg"
             alt="Hero Background"
-            layout="fill"
-            objectFit="cover"
-            className="absolute animate-zoom-in-out"
+            fill
+           style={{objectFit:"cover"}} 
+          className="absolute "
           />
+
+<Image
+  src="/bg-about.jpg"
+  alt="Background Image"
+  fill
+  style={{ objectFit: 'cover' }}
+  className="absolute"
+/>
           <div className="absolute inset-0 bg-gradient-to-b from-black/60 to-black/30"></div>
         </div>
         
