@@ -25,8 +25,7 @@ export const metadata = {
         alt: "Alvyne Team Photo",
       },
     ],
-    locale: "en_US",
-    type: "website",
+    
   },
   twitter: {
     card: "summary_large_image",
@@ -34,11 +33,9 @@ export const metadata = {
     description: "We're on a mission to simplify your financial life. Learn about our founders and our goals.",
     images: ["https://alvine-mu.vercel.app/slide2.jpg"],
   },
-  alternates: {
-    canonical: "https://alvine-mu.vercel.app/About",
-  },
+ 
 };
 
-export default function AboutLayout({ children }) {
+export default function AboutPage() {
   return <About/>;
 }
