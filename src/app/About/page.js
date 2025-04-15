@@ -20,8 +20,8 @@ export const metadata = {
     images: [
       {
         url: "https://alvine-mu.vercel.app/slide2.jpg",
-        width: 800,
-        height: 600,
+        width: 1200,
+        height: 630,
         alt: "Alvyne Team Photo",
       },
     ],
