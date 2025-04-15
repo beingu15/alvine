@@ -20,8 +20,8 @@ export const metadata = {
     images: [
       {
         url: "https://alvine-mu.vercel.app/slide2.jpg",
-        width: 1200,
-        height: 630,
+        width: 800,
+        height: 600,
         alt: "Alvyne Team Photo",
       },
     ],
@@ -32,7 +32,7 @@ export const metadata = {
     card: "summary_large_image",
     title: "Meet the Experts Behind Alvyne Agency",
     description: "We're on a mission to simplify your financial life. Learn about our founders and our goals.",
-    images: ["https://alvine-mu.vercel.app/albert.jpg"],
+    images: ["https://alvine-mu.vercel.app/slide2.jpg"],
   },
   alternates: {
     canonical: "https://alvine-mu.vercel.app/About",
