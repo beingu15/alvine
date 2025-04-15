@@ -1,4 +1,4 @@
-import About from "./AboutPage.";
+import About from "./AboutPage";
 
 export const metadata = {
   title: "About Us | Alvyne Agency",

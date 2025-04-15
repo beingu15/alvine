@@ -9,7 +9,7 @@ import { useState } from 'react';
 import { FaUsers, FaCheckCircle, FaHandshake } from 'react-icons/fa';
 import { motion } from 'framer-motion';
 
-export default function About() {
+export default function AboutPage() {
   const [showMore, setShowMore] = useState(false);
 
   return (
