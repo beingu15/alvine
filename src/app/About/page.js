@@ -19,7 +19,7 @@ export const metadata = {
     siteName: "Alvyne Agency",
     images: [
       {
-        url: "https://alvine-mu.vercel.app/albert.jpg",
+        url: "https://alvine-mu.vercel.app/slide2.jpg",
         width: 1200,
         height: 630,
         alt: "Alvyne Team Photo",
