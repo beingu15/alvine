@@ -4,215 +4,229 @@ import Navbar from '@/components/Navbar';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
 import { BsGeoAlt, BsEnvelopeOpen, BsPhoneVibrate, BsArrowRight } from "react-icons/bs";
-import { FaFacebookF, FaTwitter, FaInstagram, FaLinkedinIn } from "react-icons/fa";
-
+import { FaLinkedinIn, FaInstagram, FaWhatsapp, FaClock, FaMapMarkedAlt } from "react-icons/fa";
 import ContactForm from '@/components/ContactForm';
-import { useState } from 'react';
+import { firmInfo } from '@/data/firmData';
+import { useSearchParams } from 'next/navigation';
+import { Suspense } from 'react';
 
-
-export default function Contact() {
-  const [hoveredItem, setHoveredItem] = useState(null);
+function ContactContent() {
+  const searchParams = useSearchParams();
+  const prefilledService = searchParams.get('service') || searchParams.get('division') || '';
 
   const contactItems = [
     { 
       icon: BsGeoAlt, 
-      label: 'Our Office', 
-      info: 'Alvine, Main Street',
-      hoverColor: 'from-purple-500 to-pink-500'
+      label: 'Office Address', 
+      info: firmInfo.contact.address,
+      actionText: 'View on Google Maps',
+      actionHref: firmInfo.contact.googleBusinessLink,
+      badge: 'Headquarters'
     },
     { 
       icon: BsEnvelopeOpen, 
-      label: 'Email Us', 
-      info: 'contact@Alvine.com',
-      hoverColor: 'from-blue-500 to-teal-400'
+      label: 'Email Inquiries', 
+      info: firmInfo.contact.email,
+      actionText: 'Send Email',
+      actionHref: `mailto:${firmInfo.contact.email}`,
+      badge: 'Official Desk'
     },
     { 
       icon: BsPhoneVibrate, 
-      label: 'Call Us', 
-      info: '+1 000 000 0000',
-      hoverColor: 'from-green-500 to-emerald-400'
+      label: 'Direct Phone', 
+      info: firmInfo.contact.phoneDisplay,
+      actionText: 'Call Now',
+      actionHref: `tel:${firmInfo.contact.phone}`,
+      badge: 'Mon-Sat 9AM-6PM'
+    },
+    { 
+      icon: FaWhatsapp, 
+      label: 'WhatsApp Advisory', 
+      info: firmInfo.contact.whatsappDisplay,
+      actionText: 'Start WhatsApp Chat',
+      actionHref: firmInfo.socialLinks.whatsapp,
+      badge: 'Fast Response'
     }
   ];
 
   return (
-    <div className="relative min-h-screen bg-gradient-to-br from-gray-50 to-gray-100 overflow-hidden">
+    <div className="relative min-h-screen bg-[#050911] text-white overflow-hidden">
       {/* Navbar */}
       <div className="absolute left-0 w-full z-50">
         <Navbar />
       </div>
 
       {/* Hero Section */}
-      <div className="relative w-full h-80 md:h-96 flex items-center justify-center">
-        <div className="absolute inset-0 overflow-hidden">
-          <Image
-            src="/slide1.jpg"
-            alt="Hero Background"
-            fill
-           style={{objectFit:"cover"}} 
-          className="absolute "
-          />
-
-<Image
-  src="/bg-about.jpg"
-  alt="Background Image"
-  fill
-  style={{ objectFit: 'cover' }}
-  className="absolute"
-/>
-          <div className="absolute inset-0 bg-gradient-to-b from-black/60 to-black/30"></div>
-        </div>
+      <div className="relative w-full h-[400px] md:h-[460px] flex items-center justify-center overflow-hidden">
+        <Image
+          src="/slide3.jpg"
+          alt="Contact ALVYNE"
+          fill
+          style={{ objectFit: "cover" }} 
+          className="absolute z-0 brightness-40 contrast-110"
+          priority
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#050911] via-black/60 to-black/75" />
         
-        <div className="relative z-10 text-center text-white px-6 mt-20">
-          <motion.h1 
-            initial={{ opacity: 0, y: -20 }} 
-            animate={{ opacity: 1, y: 0 }} 
-            transition={{ duration: 0.8, delay: 0.2 }}
-            className="text-4xl md:text-6xl font-bold drop-shadow-lg mb-4"
+        <div className="relative z-10 text-center text-white px-6 mt-16 max-w-4xl mx-auto">
+          <motion.div
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-[#FFD700]/30 bg-[#FFD700]/15 text-[#FFD700] text-xs sm:text-sm font-semibold uppercase tracking-wider mb-4"
           >
-            Let's <span className="text-[#FFD700]">Connect</span>
+            <span>Estd. {firmInfo.establishedYear}</span>
+            <span>•</span>
+            <span>{firmInfo.tagline}</span>
+          </motion.div>
+
+          <motion.h1 
+            initial={{ opacity: 0, y: 20 }} 
+            animate={{ opacity: 1, y: 0 }} 
+            transition={{ duration: 0.8, delay: 0.1 }}
+            className="text-4xl sm:text-5xl md:text-6xl font-black tracking-tight"
+          >
+            Let&apos;s <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#FFD700] via-yellow-300 to-[#FFA500]">Connect</span>
           </motion.h1>
+
           <motion.p
             initial={{ opacity: 0, y: 20 }} 
             animate={{ opacity: 1, y: 0 }} 
-            transition={{ duration: 0.8, delay: 0.4 }}
-            className="text-lg md:text-2xl mt-2 drop-shadow-lg max-w-2xl mx-auto"
+            transition={{ duration: 0.8, delay: 0.2 }}
+            className="text-base sm:text-lg md:text-xl text-gray-300 mt-4 max-w-2xl mx-auto leading-relaxed"
           >
-            We'd love to hear from you! Reach out for inquiries, collaborations, or just to say hello.
+            Schedule a strategic consultation with the partners at {firmInfo.name} for tax filing, business compliance, or virtual CFO leadership.
           </motion.p>
-          
-         
         </div>
       </div>
 
-      {/* Floating decorative elements */}
-      <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
+      {/* Main Grid: Form + Contact Info */}
+      <div className="container mx-auto px-6 py-20 relative z-10 max-w-7xl">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
+          {/* Left: Contact Form (7 cols) */}
+          <div className="lg:col-span-7">
+            <ContactForm initialService={prefilledService} />
+          </div>
 
-      </div>
-
-      {/* Contact Section */}
-      <div className="container mx-auto px-6 py-16 relative z-10">
-        <motion.div 
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          transition={{ duration: 0.8 }}
-          viewport={{ once: true }}
-          className="text-center mb-16"
-        >
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-4">
-            How Can We <span className="text-[#FFD700]">Help You?</span>
-          </h2>
-          <p className="text-gray-600 max-w-2xl mx-auto">
-            Whether you have questions about our services or want to discuss a potential project, our team is ready to assist you.
-          </p>
-        </motion.div>
-
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-          {/* Contact Form */}
-          
-            <div className="absolute "></div>
-
-              
-              <ContactForm />
-            
-          
-
-          {/* Contact Info */}
-          <motion.div 
-            initial={{ opacity: 0, y: 50 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            viewport={{ once: true }}
-            className="space-y-8"
-          >
-            <div className="bg-gradient-to-br from-gray-800 to-gray-900 p-8 rounded-2xl shadow-2xl text-white">
-              <h2 className="text-3xl font-bold mb-6 text-center">
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#FFD700] to-yellow-300">
-                  Contact Information
+          {/* Right: Contact Information & Cards (5 cols) */}
+          <div className="lg:col-span-5 space-y-6">
+            <div className="bg-[#0e1626] p-8 rounded-3xl border border-white/10 shadow-xl space-y-6">
+              <div>
+                <span className="text-xs font-bold text-[#FFD700] uppercase tracking-widest block mb-1">
+                  Firm Coordinates
                 </span>
-              </h2>
-              
-              <div className="space-y-6">
-                {contactItems.map((item, index) => (
-                  <motion.div 
-                    key={index}
-                    whileHover={{ scale: 1.03 }}
-                    onHoverStart={() => setHoveredItem(index)}
-                    onHoverEnd={() => setHoveredItem(null)}
-                    className={`relative overflow-hidden p-5 rounded-xl transition-all cursor-pointer ${hoveredItem === index ? 'bg-gray-700' : 'bg-gray-800'}`}
-                  >
-                    {hoveredItem === index && (
-                      <motion.div 
-                        className={`absolute inset-0 bg-gradient-to-r ${item.hoverColor} opacity-20`}
-                        layoutId="contactItemBg"
-                        transition={{ type: 'spring', stiffness: 300, damping: 25 }}
-                      />
-                    )}
-                    <div className="relative z-10 flex items-center gap-5">
-                      <div className={`p-4 rounded-full ${hoveredItem === index ? `bg-gradient-to-br ${item.hoverColor} text-white` : 'bg-gray-700'}`}>
-                        <item.icon size={24} />
+                <h3 className="text-2xl font-bold text-white">
+                  {firmInfo.name}
+                </h3>
+                <p className="text-xs text-gray-400 mt-1">
+                  {firmInfo.subTagline}
+                </p>
+              </div>
+
+              {/* Working Hours */}
+              <div className="flex items-center gap-3 p-4 rounded-xl bg-white/[0.03] border border-white/5 text-sm">
+                <FaClock className="text-[#FFD700] shrink-0" size={16} />
+                <div>
+                  <span className="text-xs text-gray-400 block font-medium">Business Hours</span>
+                  <span className="text-white font-semibold text-xs sm:text-sm">{firmInfo.contact.workingHours}</span>
+                </div>
+              </div>
+
+              {/* Contact Channels */}
+              <div className="space-y-4">
+                {contactItems.map((item, index) => {
+                  const Icon = item.icon;
+                  return (
+                    <motion.a 
+                      key={index}
+                      href={item.actionHref}
+                      target={item.actionHref.startsWith('http') ? '_blank' : undefined}
+                      rel={item.actionHref.startsWith('http') ? 'noopener noreferrer' : undefined}
+                      whileHover={{ scale: 1.01 }}
+                      className="block p-5 rounded-2xl bg-[#080d16] border border-white/5 hover:border-[#FFD700]/40 transition group"
+                    >
+                      <div className="flex items-start gap-4">
+                        <div className="w-12 h-12 rounded-xl bg-[#FFD700]/10 border border-[#FFD700]/30 flex items-center justify-center text-[#FFD700] group-hover:bg-[#FFD700] group-hover:text-black transition shrink-0">
+                          <Icon size={20} />
+                        </div>
+                        <div className="flex-1 min-w-0">
+                          <div className="flex items-center justify-between">
+                            <span className="text-xs font-semibold text-gray-400 uppercase tracking-wider">
+                              {item.label}
+                            </span>
+                            <span className="text-[10px] font-bold text-[#FFD700] px-2 py-0.5 rounded bg-white/5">
+                              {item.badge}
+                            </span>
+                          </div>
+                          <p className="text-sm font-semibold text-white mt-1 break-words">
+                            {item.info}
+                          </p>
+                          <div className="flex items-center gap-1 text-xs text-[#FFD700] mt-2 font-medium group-hover:underline">
+                            <span>{item.actionText}</span>
+                            <BsArrowRight size={12} />
+                          </div>
+                        </div>
                       </div>
-                      <div>
-                        <h6 className="text-lg font-semibold">{item.label}</h6>
-                        <p className="text-gray-300">{item.info}</p>
-                      </div>
-                    </div>
-                  </motion.div>
-                ))}
+                    </motion.a>
+                  );
+                })}
+              </div>
+
+              {/* Google Business Profile Action */}
+              <div className="pt-2">
+                <a
+                  href={firmInfo.contact.googleBusinessLink}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-full py-3 px-4 rounded-xl bg-gradient-to-r from-[#1c263c] to-[#121a2c] hover:from-[#24314c] hover:to-[#1a253d] border border-white/10 text-white text-xs font-semibold flex items-center justify-center gap-2 transition"
+                >
+                  <FaMapMarkedAlt className="text-[#FFD700]" size={16} />
+                  <span>View Google Business Profile</span>
+                </a>
+              </div>
+
+              {/* Social Channels */}
+              <div className="pt-4 border-t border-white/10">
+                <p className="text-xs text-gray-400 font-semibold uppercase tracking-wider mb-3 text-center">
+                  Connect on Social Media
+                </p>
+                <div className="flex justify-center gap-3">
+                  {[
+                    { icon: FaLinkedinIn, href: firmInfo.socialLinks.linkedin, label: "LinkedIn" },
+                    { icon: FaInstagram, href: firmInfo.socialLinks.instagram, label: "Instagram" },
+                    { icon: FaWhatsapp, href: firmInfo.socialLinks.whatsapp, label: "WhatsApp" },
+                  ].map((s, idx) => (
+                    <a
+                      key={idx}
+                      href={s.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label={s.label}
+                      className="w-10 h-10 rounded-full bg-white/5 border border-white/10 hover:border-[#FFD700] hover:bg-[#FFD700] text-[#FFD700] hover:text-black flex items-center justify-center transition"
+                    >
+                      <s.icon size={16} />
+                    </a>
+                  ))}
+                </div>
               </div>
             </div>
-
-            {/* Map */}
-            <motion.div 
-              whileHover={{ scale: 1.01 }}
-              className="overflow-hidden rounded-2xl shadow-2xl border-2 border-[#FFD700]"
-            >
-              <div className="relative h-64 w-full">
-                <div className="absolute inset-0 bg-gradient-to-br from-[#FFD700]/10 to-[#FFD700]/30"></div>
-                <iframe
-                  className="w-full h-full"
-                  src="https://www.google.com/maps/embed?pb=your-map-url"
-                  allowFullScreen
-                  aria-hidden="false"
-                  tabIndex="0"
-                  loading="lazy"
-                />
-              </div>
-              <div className="bg-gray-800 p-4 text-center">
-                <button className="text-[#FFD700] font-medium hover:underline flex items-center justify-center gap-2 mx-auto">
-                  Open in Google Maps <BsArrowRight />
-                </button>
-              </div>
-            </motion.div>
-
-            {/* Social Media */}
-            <div className="bg-white p-6 rounded-2xl shadow-lg border border-gray-100">
-  <h4 className="text-xl font-semibold text-gray-800 mb-4 text-center">Follow Us</h4>
-  <div className="flex justify-center gap-4">
-    {[
-      { icon: FaFacebookF, link: "https://facebook.com" },
-      { icon: FaTwitter, link: "https://twitter.com" },
-      { icon: FaInstagram, link: "https://instagram.com" },
-      { icon: FaLinkedinIn, link: "https://linkedin.com" },
-    ].map(({ icon: Icon, link }, i) => (
-      <motion.a
-        key={i}
-        href={link}
-        target="_blank"
-        rel="noopener noreferrer"
-        whileHover={{ y: -3 }}
-        whileTap={{ scale: 0.95 }}
-        className="p-3 bg-gray-100 rounded-full hover:bg-[#FFD700] transition-colors text-gray-800 hover:text-white flex items-center justify-center w-12 h-12"
-      >
-        <Icon size={20} />
-      </motion.a>
-    ))}
-  </div>
-</div>
-          </motion.div>
+          </div>
         </div>
       </div>
-
-      
     </div>
+  );
+}
+
+export default function Contact() {
+  return (
+    <Suspense
+      fallback={
+        <div className="min-h-screen bg-[#050911] text-white flex items-center justify-center">
+          <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-[#FFD700]"></div>
+        </div>
+      }
+    >
+      <ContactContent />
+    </Suspense>
   );
 }

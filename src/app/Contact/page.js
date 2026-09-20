@@ -1,48 +1,40 @@
-// app/contact/page.js (Server Component - no 'use client')
-
 import Contact from "./ContactPage";
-
+import { firmInfo } from "@/data/firmData";
 
 export const metadata = {
-  title: "Contact | Alvyne Agency",
+  title: "Contact Us",
   description:
-    "Welcome to Alvyne Agency — Empowering businesses through creative design, smart strategy, and powerful visual storytelling.",
+    `Get in touch with ${firmInfo.name}. Connect with our partners for income tax filing, GST consultation, accounting, compliance, and virtual CFO advisory.`,
   keywords: [
-    "Alvyne Agency",
-    "Business Growth",
-    "Creative Services",
-    "Brand Strategy",
-    "Web Design",
-    "Digital Marketing",
+    "Contact ALVYNE",
+    "ALVYNE Management Consultancy Address",
+    "Chartered Accountant Contact",
+    "Tax Consultation Office",
+    "Virtual CFO Consultation",
   ],
   openGraph: {
-    title: "Alvyne Agency | Creative Business Solutions",
+    title: `Contact ${firmInfo.name} | ${firmInfo.tagline}`,
     description:
-      "Explore our unique services to help your brand grow — from web design to business strategy.",
-    url: "https://alvine-mu.vercel.app",
-    siteName: "Alvyne Agency",
+      "Schedule a consultation or reach out to our specialist teams for corporate compliance, taxation, and advisory.",
+    url: "https://alvine-mu.vercel.app/Contact",
+    siteName: firmInfo.name,
     images: [
       {
-        url: "https://alvine-mu.vercel.app/slide1.jpg",
+        url: "https://alvine-mu.vercel.app/logo.png",
         width: 1200,
         height: 630,
-        alt: "Banner showing creative digital services",
+        alt: `${firmInfo.name} Contact`,
       },
     ],
-    locale: "en_US",
-    type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Alvyne Agency | Digital Innovation Meets Strategy",
-    description: "We craft digital solutions for real business growth.",
-    images: ["https://alvine-mu.vercel.app/slide1.jpg"],
-  },
-  alternates: {
-    canonical: "https://alvine-mu.vercel.app/",
+    title: `Contact ${firmInfo.name}`,
+    description: "Reach our accounting, taxation, and compliance specialists today.",
+    images: ["https://alvine-mu.vercel.app/logo.png"],
   },
 };
 
 export default function Page() {
-  return <Contact/>;
+  return <Contact />;
 }

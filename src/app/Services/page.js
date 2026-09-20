@@ -1,42 +1,43 @@
-
 import Services from './ServicesClient';
+import { firmInfo } from '@/data/firmData';
 
 export const metadata = {
-  title: 'Our Services | Alvyne Financial Solutions',
+  title: 'Our Services',
   description:
-    'Discover Alvyne’s wide range of financial services including tax filing, ITR consulting, investment planning, and more for individuals and businesses.',
+    "Explore the comprehensive services catalog of ALVYNE Management Consultancy: Business Incorporation, Direct Tax, GST, Corporate Compliance, Virtual CFO, and Strategic Advisory.",
   keywords: [
-    'Tax Filing',
-    'ITR Consulting',
-    'Financial Planning',
-    'Business Registration',
-    'Corporate Tax',
-    'Accounting Services',
-    'Bookkeeping',
-    'Audit & Assurance',
-    'Investment Advisory',
-    'Alvyne Services'
+    "Incorporation Services",
+    "Company Registration India",
+    "Direct Tax Planning",
+    "GST Filing and Reconciliation",
+    "Virtual CFO Services",
+    "ROC Compliance",
+    "Internal Audit Support",
+    "Startup Pitch Deck Advisory",
+    "ALVYNE Services",
   ],
   openGraph: {
-    title: 'Alvyne Financial Services',
-    description: 'Comprehensive tax and financial solutions tailored for individuals and businesses.',
-    url: 'https://alvine-mu.vercel.app/Services',
-    type: 'website',
+    title: `Services | ${firmInfo.name}`,
+    description:
+      "End-to-end taxation, corporate compliance, business formation, and financial advisory services for individuals, startups, and growing enterprises.",
+    url: "https://alvine-mu.vercel.app/Services",
+    type: "website",
     images: [
       {
-        url: 'https://alvine-mu.vercel.app/logo.png',
+        url: "https://alvine-mu.vercel.app/logo.png",
         width: 800,
         height: 600,
-        alt: 'Alvyne Logo'
-      }
-    ]
+        alt: `${firmInfo.name} Logo`,
+      },
+    ],
   },
   twitter: {
-    card: 'summary_large_image',
-    title: 'Explore Alvyne Financial Services',
-    description: 'Tax filing, ITR consulting, corporate planning and more tailored to your financial needs.',
-    images: ['https://alvine-mu.vercel.app/logo.png']
-  }
+    card: "summary_large_image",
+    title: `Our Financial Services | ${firmInfo.name}`,
+    description:
+      "Full spectrum taxation, compliance, virtual CFO, and incorporation advisory.",
+    images: ["https://alvine-mu.vercel.app/logo.png"],
+  },
 };
 
 export default function ServicesPage() {

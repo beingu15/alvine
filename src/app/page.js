@@ -1,5 +1,3 @@
-
-
 import Services from "@/components/Services";
 import SubHeader from "@/components/SubHeader";
 import FlowerAnimation from "@/components/FlowerAnimation";
@@ -7,33 +5,38 @@ import Navbar from "@/components/Navbar";
 import Banner from "@/components/Banner";
 import BusinessGrowthSection from "@/components/BusinessGrowthSection";
 import AboutCompanySection from "@/components/About";
+import WhyChooseUs from "@/components/WhyChooseUs";
 import ConnectSection from "@/components/ConnectSection";
 import Script from "next/script";
+import { firmInfo } from "@/data/firmData";
 
 export const metadata = {
-  title: "Home | Alvyne Agency",
+  title: `${firmInfo.name} | ${firmInfo.tagline}`,
   description:
-    "Welcome to Alvyne Agency — Empowering businesses through creative design, smart strategy, and powerful visual storytelling.",
+    "ALVYNE Management Consultancy is a premier financial services firm specializing in ITR filing, tax planning, GST, corporate compliance, accounting, and financial advisory.",
   keywords: [
-    "Alvyne Agency",
-    "Business Growth",
-    "Creative Services",
-    "Brand Strategy",
-    "Web Design",
-    "Digital Marketing",
+    "ALVYNE Management Consultancy",
+    "Tax Planning Kochi",
+    "ITR Filing India",
+    "GST Registration and Returns",
+    "Virtual CFO Services",
+    "Company Incorporation",
+    "Corporate Compliance ROC",
+    "Chartered Accountant Advisory",
+    "Startup Financial Guidance",
   ],
   openGraph: {
-    title: "Alvyne Agency | Creative Business Solutions",
+    title: `${firmInfo.name} | ${firmInfo.tagline}`,
     description:
-      "Explore our unique services to help your brand grow — from web design to business strategy.",
+      "Navigating Growth, Building Resilience. Dedicated financial services firm specializing in Income Tax, GST, accounting, compliance, and virtual CFO advisory.",
     url: "https://alvine-mu.vercel.app",
-    siteName: "Alvyne Agency",
+    siteName: firmInfo.name,
     images: [
       {
-        url: "https://alvine-mu.vercel.app/slide1.jpg",
+        url: "https://alvine-mu.vercel.app/logo.png",
         width: 1200,
         height: 630,
-        alt: "Banner showing creative digital services",
+        alt: `${firmInfo.name} Logo and Branding`,
       },
     ],
     locale: "en_US",
@@ -41,9 +44,10 @@ export const metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Alvyne Agency | Digital Innovation Meets Strategy",
-    description: "We craft digital solutions for real business growth.",
-    images: ["https://alvine-mu.vercel.app/slide1.jpg"],
+    title: `${firmInfo.name} | ${firmInfo.tagline}`,
+    description:
+      "Strategic financial guidance, tax planning, and statutory compliance for businesses, startups, and individuals.",
+    images: ["https://alvine-mu.vercel.app/logo.png"],
   },
   alternates: {
     canonical: "https://alvine-mu.vercel.app/",
@@ -51,23 +55,38 @@ export const metadata = {
 };
 
 export default function Home() {
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "FinancialService",
+    name: firmInfo.name,
+    legalName: firmInfo.name,
+    description: firmInfo.about.summary,
+    url: "https://alvine-mu.vercel.app",
+    logo: "https://alvine-mu.vercel.app/logo.png",
+    foundingDate: `${firmInfo.establishedYear}`,
+    slogan: firmInfo.tagline,
+    telephone: firmInfo.contact.phone,
+    email: firmInfo.contact.email,
+    address: {
+      "@type": "PostalAddress",
+      streetAddress: firmInfo.contact.address,
+      addressCountry: "IN",
+    },
+    openingHours: "Mo-Sa 09:00-18:00",
+    sameAs: [
+      firmInfo.socialLinks.linkedin,
+      firmInfo.socialLinks.instagram,
+      firmInfo.socialLinks.whatsapp,
+    ],
+  };
+
   return (
-    <div>
+    <div className="bg-black min-h-screen">
       <Script
         id="ld-json-home"
         type="application/ld+json"
         dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "WebSite",
-            name: "Alvyne Agency",
-            url: "https://alvine-mu.vercel.app",
-            potentialAction: {
-              "@type": "SearchAction",
-              target: "https://alvine-mu.vercel.app/search?q={search_term_string}",
-              "query-input": "required name=search_term_string",
-            },
-          }),
+          __html: JSON.stringify(jsonLd),
         }}
       />
 
@@ -82,8 +101,9 @@ export default function Home() {
         <Services />
         <BusinessGrowthSection />
         <AboutCompanySection />
+        <WhyChooseUs />
         <ConnectSection />
-        <FlowerAnimation />
+
       </main>
     </div>
   );

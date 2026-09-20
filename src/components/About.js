@@ -3,69 +3,103 @@
 import Image from 'next/image';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
+import { firmInfo } from '@/data/firmData';
+import { FaCheckCircle, FaArrowRight } from 'react-icons/fa';
 
 export default function AboutCompanySection() {
   return (
-    <section className="relative bg-black text-white py-16 flex flex-col md:flex-row items-center mx-auto px-6 md:px-12 overflow-hidden">
-    
-      {/* Left Image Section */}
-      <motion.div 
-        className="md:w-1/2 relative w-full h-96 md:h-[500px]"
-        initial={{ opacity: 0, x: -50 }}
-        whileInView={{ opacity: 1, x: 0 }}
-        transition={{ duration: 1.0, ease: "easeOut" }}
-      >
-        <Image
-          src="/slide1.jpg" // Change to a relevant image
-          alt="Chartered Accountants"
-          fill
-          className="object-cover rounded-lg"
-        />
-      </motion.div>
+    <section className="relative bg-black text-white py-24 mx-auto px-6 md:px-12 overflow-hidden">
+      <div className="max-w-7xl mx-auto flex flex-col lg:flex-row items-center gap-12">
+        {/* Left Image Section */}
+        <motion.div 
+          className="lg:w-1/2 relative w-full h-[400px] md:h-[500px] rounded-3xl overflow-hidden shadow-2xl border border-white/10"
+          initial={{ opacity: 0, x: -50 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
+        >
+          <Image
+            src="/slide2.jpg"
+            alt="ALVYNE Management Consultancy"
+            fill
+            className="object-cover"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
+          
+          <div className="absolute bottom-6 left-6 right-6 p-6 rounded-2xl bg-[#0b1019]/90 backdrop-blur-md border border-white/10">
+            <div className="flex items-center justify-between">
+              <div>
+                <p className="text-xs font-semibold text-[#FFD700] uppercase tracking-wider">Established {firmInfo.establishedYear}</p>
+                <h4 className="text-xl font-bold text-white mt-1">{firmInfo.name}</h4>
+              </div>
+              <span className="px-3 py-1 rounded-full bg-[#FFD700]/20 text-[#FFD700] text-xs font-bold">
+                {firmInfo.tagline}
+              </span>
+            </div>
+          </div>
+        </motion.div>
 
-      {/* Right Text Section */}
-      <motion.div 
-        className="md:w-1/2 md:pl-12 mt-10 md:mt-0 text-left"
-        initial={{ opacity: 0, x: 50 }}
-        whileInView={{ opacity: 1, x: 0 }}
-        transition={{ duration: 1.0, ease: "easeOut" }}
-      >
-        <h4 className="text-sm uppercase tracking-wider text-gray-400">
-          WHO WE ARE
-        </h4>
-        <h2 className="text-3xl md:text-5xl font-bold mt-2">
-          Trusted <span className="text-[#FFD700]">Financial Solutions</span> for Your Business
-        </h2>
-        <p className="mt-4 text-gray-300">
-          We are a team of <strong>certified Financial Consultants</strong> specializing in tax planning, auditing, financial consulting, and business advisory services. With years of experience, we help businesses stay compliant, optimize their financial health, and achieve sustainable growth.
-        </p>
-        <p className="mt-4 text-gray-300">
-          Our services are tailored to meet the needs of individuals, startups, and established enterprises. We provide strategic financial planning, <strong>corporate tax solutions, bookkeeping, payroll management, and investment consulting</strong> to help you focus on growing your business.
-        </p>
+        {/* Right Text Section */}
+        <motion.div 
+          className="lg:w-1/2 text-left space-y-6"
+          initial={{ opacity: 0, x: 50 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
+        >
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-[#FFD700]/30 bg-[#FFD700]/10 text-[#FFD700] text-xs font-bold uppercase tracking-wider">
+            Who We Are
+          </div>
 
-       
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold leading-tight">
+            {firmInfo.about.headline}
+          </h2>
 
-        {/* Bullet Points Section */}
-        <ul className="mt-4 text-gray-300 list-disc list-inside">
-          <li>✅ Tax Compliance & Planning</li>
-          <li>✅ Auditing & Assurance Services</li>
-          <li>✅ Business Growth & Financial Strategy</li>
-          <li>✅ Risk Management & Investment Advisory</li>
-          <li>✅ Payroll, Bookkeeping & Accounting Solutions</li>
-          <li>✅ Legal Entity Structuring & Corporate Finance</li>
-        </ul>
+          <p className="text-gray-300 text-base sm:text-lg leading-relaxed">
+            {firmInfo.about.summary}
+          </p>
 
-        <Link href={'/Services'}>
-          <motion.button 
-            className="mt-6 px-6 py-2 bg-[#FFD700] text-black font-semibold rounded-lg hover:bg-[#E6C200] transition shadow-lg"
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            transition={{ duration: 0.3 }}
-          >
-            Learn More
-          </motion.button>
-        </Link>
-      </motion.div>
+          <p className="text-gray-400 text-sm sm:text-base leading-relaxed">
+            {firmInfo.about.approach}
+          </p>
+
+          {/* Key Advantages */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-2">
+            {[
+              "Direct Tax & ITR Filing Solutions",
+              "End-to-End GST Advisory & Health Checks",
+              "ROC, Secretarial & Labour Law Compliance",
+              "Virtual CFO & Startup Financial Structuring",
+              "Audit Support & Statutory Reconciliations",
+              "Comprehensive Services Under One Roof",
+            ].map((point, index) => (
+              <div key={index} className="flex items-center gap-2 text-sm text-gray-200">
+                <FaCheckCircle className="text-[#FFD700] shrink-0" size={14} />
+                <span>{point}</span>
+              </div>
+            ))}
+          </div>
+
+          <div className="pt-4 flex items-center gap-4">
+            <Link href="/About">
+              <motion.button 
+                className="px-7 py-3.5 bg-[#FFD700] text-black font-bold rounded-full hover:bg-[#E6C200] transition shadow-lg flex items-center gap-2 text-sm"
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                <span>Read Full Story & Founders</span>
+                <FaArrowRight size={14} />
+              </motion.button>
+            </Link>
+
+            <Link href="/Contact">
+              <button className="px-6 py-3.5 rounded-full bg-white/10 hover:bg-white/20 text-white font-medium text-sm border border-white/20 transition">
+                Consult With Us
+              </button>
+            </Link>
+          </div>
+        </motion.div>
+      </div>
     </section>
   );
 }

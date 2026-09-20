@@ -1,41 +1,42 @@
 import About from "./AboutPage";
+import { firmInfo } from "@/data/firmData";
 
 export const metadata = {
-  title: "About Us | Alvyne Agency",
-  description: "Learn about Alvyne Agency, our expert team, and how we empower businesses and individuals with smart financial services and guidance.",
+  title: "About Us",
+  description:
+    "Learn about ALVYNE Management Consultancy, our founders, our journey since 2024, vision, mission, and commitment to empowering businesses with strategic financial guidance.",
   keywords: [
-    "Alvyne Agency",
-    "About Alvyne",
-    "Financial Consulting",
-    "ITR Filing",
-    "Tax Services",
-    "Startup Support",
-    "Business Advisory"
+    "About ALVYNE",
+    "ALVYNE Management Consultancy Founders",
+    "Albert Pradeep CA",
+    "Nelson Joseph Senior Accountant",
+    "Vyshnav Prakash Consultant",
+    "Financial Advisory Firm",
+    "Taxation Experts",
   ],
   openGraph: {
-    title: "About Alvyne Agency | Financial Expertise & Growth Strategies",
-    description: "Discover Alvyne Agency's mission, team, and the values that drive our financial consulting and business services.",
+    title: `About ${firmInfo.name} | Navigating Growth, Building Resilience`,
+    description:
+      "Founded in 2024 by three independent finance professionals, ALVYNE provides strategic financial guidance, taxation, compliance, and virtual CFO advisory.",
     url: "https://alvine-mu.vercel.app/About",
-    siteName: "Alvyne Agency",
+    siteName: firmInfo.name,
     images: [
       {
-        url: "https://alvine-mu.vercel.app/slide2.jpg",
+        url: "https://alvine-mu.vercel.app/albert.jpg",
         width: 1200,
         height: 630,
-        alt: "Alvyne Team Photo",
+        alt: "ALVYNE Leadership Team",
       },
     ],
-    
   },
   twitter: {
     card: "summary_large_image",
-    title: "Meet the Experts Behind Alvyne Agency",
-    description: "We're on a mission to simplify your financial life. Learn about our founders and our goals.",
-    images: ["https://alvine-mu.vercel.app/slide2.jpg"],
+    title: `Meet the Team at ${firmInfo.name}`,
+    description: "Strategic taxation, compliance, and growth advisory led by qualified Chartered Accountants and consultants.",
+    images: ["https://alvine-mu.vercel.app/albert.jpg"],
   },
- 
 };
 
 export default function AboutPage() {
-  return <About/>;
+  return <About />;
 }
