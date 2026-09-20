@@ -12,12 +12,12 @@ export const firmInfo = {
 
   contact: {
     address: "ALVYNE Management Consultancy, Corporate Office",
-    phone: "+91 90080 07600",
-    phoneDisplay: "+91 90080 07600",
+    phone: "+918592823900",
+    phoneDisplay: "+918592823900",
     email: "contact@alvyne.com",
     supportEmail: "info@alvyne.com",
-    whatsapp: "+919008007600",
-    whatsappDisplay: "+91 90080 07600",
+    whatsapp: "+918592823900",
+    whatsappDisplay: "+918592823900",
     workingHours: "Mon - Sat: 09:00 AM - 06:00 PM",
     googleBusinessLink: "https://maps.google.com/?q=ALVYNE+Management+Consultancy",
   },
@@ -25,7 +25,7 @@ export const firmInfo = {
   socialLinks: {
     linkedin: "https://linkedin.com/company/alvyne",
     instagram: "https://instagram.com/alvyne_consultancy",
-    whatsapp: "https://wa.me/919008007600",
+    whatsapp: "https://wa.me/918592823900",
     twitter: "https://twitter.com/alvyne",
     facebook: "https://facebook.com/alvyneconsultancy",
   },
