@@ -13,19 +13,46 @@ export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const pathname = usePathname();
 
+  // Close mobile drawer whenever navigation route changes
   useEffect(() => {
+    setIsOpen(false);
+  }, [pathname]);
+
+  // Lock body scroll when mobile menu is open to prevent background scroll interference
+  useEffect(() => {
+    if (isOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [isOpen]);
+
+  // High-performance scroll listener with hysteresis deadband
+  useEffect(() => {
+    let ticking = false;
+
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 60);
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          const scrollY = window.scrollY || 0;
+          setIsScrolled((prev) => {
+            if (!prev && scrollY > 40) return true;
+            if (prev && scrollY < 15) return false;
+            return prev;
+          });
+          ticking = false;
+        });
+        ticking = true;
+      }
     };
 
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    handleScroll();
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
-
-  const menuVariants = {
-    open: { opacity: 1, y: 0, transition: { type: 'spring', stiffness: 300, damping: 24 } },
-    closed: { opacity: 0, y: -20, transition: { duration: 0.2 } },
-  };
 
   const navLinks = [
     { name: 'Home', href: '/' },
@@ -34,11 +61,20 @@ export default function Navbar() {
     { name: 'Contact Us', href: '/Contact' },
   ];
 
+  const hasSubHeader = pathname === '/';
+  const topClass = hasSubHeader && !isScrolled ? 'top-0 md:top-10' : 'top-0';
+
+  // Determine header background without causing layout shifts
+  let headerBgClass = 'bg-[#07101d]/85 md:bg-transparent backdrop-blur-md md:backdrop-blur-none border-b border-white/5 md:border-transparent';
+  if (isOpen) {
+    headerBgClass = 'bg-[#07101d] border-b border-white/10 shadow-2xl';
+  } else if (isScrolled) {
+    headerBgClass = 'bg-[#07101d]/95 backdrop-blur-md shadow-xl border-b border-white/10';
+  }
+
   return (
-    <nav
-      className={`w-full top-0 left-0 z-50 transition-all duration-300 ${
-        isScrolled ? 'fixed bg-[#07101d]/95 backdrop-blur-md shadow-xl py-3 border-b border-white/10' : 'relative bg-transparent py-4'
-      }`}
+    <header
+      className={`fixed left-0 w-full z-50 transition-[top,background-color,border-color,box-shadow] duration-250 ease-out ${topClass} ${headerBgClass} py-3 md:py-3.5`}
     >
       <div className="container mx-auto flex items-center justify-between px-6">
         {/* Logo & Brand Name */}
@@ -47,10 +83,10 @@ export default function Navbar() {
             <Image
               src="/logo.png"
               alt="ALVYNE Logo"
-              width={54}
-              height={70}
+              width={56}
+              height={56}
               priority
-              className="h-12 sm:h-14 md:h-16 w-auto object-contain transition-transform duration-300 group-hover:scale-105 drop-shadow-[0_2px_12px_rgba(255,215,0,0.25)]"
+              className="h-11 sm:h-12 md:h-13 w-auto rounded-xl object-contain transition-transform duration-300 group-hover:scale-105 shadow-md"
             />
           </div>
           <div className="flex flex-col">
@@ -64,7 +100,7 @@ export default function Navbar() {
         </Link>
 
         {/* Desktop Navigation */}
-        <div className="hidden lg:flex items-center space-x-8">
+        <nav className="hidden lg:flex items-center space-x-8" aria-label="Desktop Navigation">
           {navLinks.map((item) => (
             <Link
               key={item.href}
@@ -87,48 +123,60 @@ export default function Navbar() {
             <PhoneCall size={14} />
             <span>{firmInfo.contact.phoneDisplay}</span>
           </a>
-        </div>
+        </nav>
 
-        {/* Mobile Menu Button */}
+        {/* Mobile Menu Button - Stable crossfade animation without DOM node replacement */}
         <button
-          className="lg:hidden text-[#FFD700] focus:outline-none p-2.5 rounded-xl bg-white/5 border border-white/10 hover:border-[#FFD700]/40 transition active:scale-95 cursor-pointer"
-          onClick={() => setIsOpen(!isOpen)}
-          aria-label="Toggle menu"
+          type="button"
+          className="lg:hidden relative w-11 h-11 flex items-center justify-center rounded-xl bg-white/5 border border-white/10 hover:border-[#FFD700]/40 text-[#FFD700] transition active:scale-95 cursor-pointer"
+          onClick={() => setIsOpen((prev) => !prev)}
+          aria-expanded={isOpen}
+          aria-label="Toggle navigation menu"
         >
-          <motion.div
-            animate={{ rotate: isOpen ? 180 : 0 }}
-            transition={{ duration: 0.3, ease: 'easeInOut' }}
-          >
-            {isOpen ? <X size={22} /> : <Menu size={22} />}
-          </motion.div>
+          <div className="relative w-6 h-6 flex items-center justify-center">
+            <Menu
+              size={22}
+              className={`absolute transition-all duration-200 ease-in-out ${
+                isOpen ? 'opacity-0 rotate-90 scale-75 pointer-events-none' : 'opacity-100 rotate-0 scale-100'
+              }`}
+            />
+            <X
+              size={22}
+              className={`absolute transition-all duration-200 ease-in-out ${
+                isOpen ? 'opacity-100 rotate-0 scale-100' : 'opacity-0 -rotate-90 scale-75 pointer-events-none'
+              }`}
+            />
+          </div>
         </button>
+      </div>
 
-        {/* Mobile Navigation Dropdown */}
-        <AnimatePresence>
-          {isOpen && (
-            <motion.ul
-              className="absolute top-full left-0 w-full lg:hidden bg-[#07101d] text-center shadow-2xl border-b border-white/10 py-5 px-6 space-y-3"
-              variants={menuVariants}
-              initial="closed"
-              animate="open"
-              exit="closed"
-            >
+      {/* Mobile Dropdown Menu - Directly attached to header with clean height accordion animation */}
+      <AnimatePresence>
+        {isOpen && (
+          <motion.div
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: 'auto' }}
+            exit={{ opacity: 0, height: 0 }}
+            transition={{ duration: 0.22, ease: [0.16, 1, 0.3, 1] }}
+            className="lg:hidden w-full overflow-hidden bg-[#07101d] border-b border-white/10 shadow-2xl"
+          >
+            <div className="px-6 pt-4 pb-6 space-y-2.5 text-center">
               {navLinks.map((item) => (
-                <li key={item.href}>
-                  <Link
-                    href={item.href}
-                    className={`block py-3 px-4 rounded-xl text-base font-medium transition-all ${
-                      pathname === item.href
-                        ? 'bg-[#FFD700]/15 text-[#FFD700] font-bold'
-                        : 'text-gray-200 hover:text-[#FFD700] hover:bg-white/5'
-                    }`}
-                    onClick={() => setIsOpen(false)}
-                  >
-                    {item.name}
-                  </Link>
-                </li>
+                <Link
+                  key={item.href}
+                  href={item.href}
+                  className={`block py-3 px-4 rounded-xl text-base font-medium transition-all ${
+                    pathname === item.href
+                      ? 'bg-[#FFD700]/15 text-[#FFD700] font-bold'
+                      : 'text-gray-200 hover:text-[#FFD700] hover:bg-white/5'
+                  }`}
+                  onClick={() => setIsOpen(false)}
+                >
+                  {item.name}
+                </Link>
               ))}
-              <li className="pt-2">
+
+              <div className="pt-3 flex flex-col gap-2">
                 <a
                   href={`tel:${firmInfo.contact.phone}`}
                   className="inline-flex items-center justify-center gap-2 w-full py-3.5 rounded-full bg-gradient-to-r from-[#FFD700] to-yellow-400 text-black font-extrabold text-sm tracking-wide shadow-lg active:scale-95 transition-all"
@@ -137,11 +185,19 @@ export default function Navbar() {
                   <PhoneCall size={16} />
                   <span>Call {firmInfo.contact.phoneDisplay}</span>
                 </a>
-              </li>
-            </motion.ul>
-          )}
-        </AnimatePresence>
-      </div>
-    </nav>
+                <a
+                  href={`tel:${firmInfo.contact.secondaryPhone}`}
+                  className="inline-flex items-center justify-center gap-2 w-full py-3 rounded-full bg-white/10 border border-white/20 text-white font-semibold text-sm tracking-wide hover:bg-white/20 active:scale-95 transition-all"
+                  onClick={() => setIsOpen(false)}
+                >
+                  <PhoneCall size={16} />
+                  <span>Call {firmInfo.contact.secondaryPhoneDisplay}</span>
+                </a>
+              </div>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </header>
   );
 }

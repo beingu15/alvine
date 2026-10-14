@@ -33,11 +33,19 @@ function ContactContent() {
     },
     { 
       icon: BsPhoneVibrate, 
-      label: 'Direct Phone', 
+      label: 'Direct Phone (Primary)', 
       info: firmInfo.contact.phoneDisplay,
-      actionText: 'Call Now',
+      actionText: `Call ${firmInfo.contact.phoneDisplay}`,
       actionHref: `tel:${firmInfo.contact.phone}`,
       badge: 'Mon-Sat 9AM-6PM'
+    },
+    { 
+      icon: BsPhoneVibrate, 
+      label: 'Direct Phone (Alternate)', 
+      info: firmInfo.contact.secondaryPhoneDisplay,
+      actionText: `Call ${firmInfo.contact.secondaryPhoneDisplay}`,
+      actionHref: `tel:${firmInfo.contact.secondaryPhone}`,
+      badge: 'Support Line'
     },
     { 
       icon: FaWhatsapp, 
@@ -52,9 +60,7 @@ function ContactContent() {
   return (
     <div className="relative min-h-screen bg-[#050911] text-white overflow-hidden">
       {/* Navbar */}
-      <div className="absolute left-0 w-full z-50">
-        <Navbar />
-      </div>
+      <Navbar />
 
       {/* Hero Section */}
       <div className="relative w-full h-[400px] md:h-[460px] flex items-center justify-center overflow-hidden">

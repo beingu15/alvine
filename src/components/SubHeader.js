@@ -14,13 +14,22 @@ export default function SubHeader() {
             <span>{firmInfo.contact.workingHours}</span>
           </div>
 
-          <a 
-            href={`tel:${firmInfo.contact.phone}`} 
-            className="flex items-center text-gray-300 hover:text-[#FFD700] transition border-l border-white/20 pl-6"
-          >
-            <FaPhoneAlt className="mr-2 text-sm text-[#FFD700]" /> 
-            <span>{firmInfo.contact.phoneDisplay}</span>
-          </a>
+          <div className="flex items-center text-gray-300 border-l border-white/20 pl-6 space-x-1.5">
+            <FaPhoneAlt className="mr-1.5 text-xs text-[#FFD700]" /> 
+            <a 
+              href={`tel:${firmInfo.contact.phone}`} 
+              className="hover:text-[#FFD700] transition"
+            >
+              {firmInfo.contact.phoneDisplay}
+            </a>
+            <span className="text-gray-500">/</span>
+            <a 
+              href={`tel:${firmInfo.contact.secondaryPhone}`} 
+              className="hover:text-[#FFD700] transition"
+            >
+              {firmInfo.contact.secondaryPhoneDisplay}
+            </a>
+          </div>
 
           <a 
             href={`mailto:${firmInfo.contact.email}`} 

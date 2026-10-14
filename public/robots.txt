@@ -1,0 +1,7 @@
+# https://www.robotstxt.org/robotstxt.html
+User-agent: *
+Allow: /
+
+# Sitemaps
+Sitemap: https://alvine-mu.vercel.app/sitemap.xml
+Sitemap: https://alvyne.in/sitemap.xml

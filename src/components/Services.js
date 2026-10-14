@@ -3,10 +3,10 @@
 import { motion } from 'framer-motion';
 import Link from 'next/link';
 import { firmInfo } from '@/data/firmData';
-import {
-  FaBuilding,
-  FaFileInvoiceDollar,
-  FaShieldAlt,
+import { 
+  FaBuilding, 
+  FaFileInvoiceDollar, 
+  FaShieldAlt, 
   FaChartLine,
   FaArrowRight,
   FaCheck
@@ -21,14 +21,14 @@ const iconComponents = {
 
 export default function ServicesSection() {
   return (
-    <section className="py-10 bg-black text-white relative overflow-hidden">
+    <section className="py-24 bg-black text-white relative overflow-hidden">
       {/* Background design elements */}
       <div className="absolute top-0 right-0 w-96 h-96 bg-[#FFD700]/5 rounded-full blur-3xl pointer-events-none" />
       <div className="absolute bottom-0 left-0 w-96 h-96 bg-blue-900/10 rounded-full blur-3xl pointer-events-none" />
 
       <div className="container mx-auto px-6 max-w-7xl relative z-10">
         <div className="text-center max-w-3xl mx-auto mb-16">
-          <motion.span
+          <motion.span 
             initial={{ opacity: 0, y: -10 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -36,7 +36,7 @@ export default function ServicesSection() {
           >
             Our Core Specializations
           </motion.span>
-          <motion.h2
+          <motion.h2 
             className="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight"
             initial={{ opacity: 0, y: -20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -45,7 +45,7 @@ export default function ServicesSection() {
           >
             Comprehensive <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#FFD700] via-yellow-300 to-[#FFA500]">Financial & Business</span> Solutions
           </motion.h2>
-          <motion.p
+          <motion.p 
             className="mt-4 text-base sm:text-lg text-gray-400"
             initial={{ opacity: 0, y: -10 }}
             whileInView={{ opacity: 1, y: 0 }}

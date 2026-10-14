@@ -35,13 +35,22 @@ export default function ConnectSection() {
 
         {/* Contact Quick Bar */}
         <div className="flex flex-wrap items-center justify-center gap-6 mb-10 text-sm text-gray-300">
-          <a 
-            href={`tel:${firmInfo.contact.phone}`} 
-            className="flex items-center gap-2 hover:text-[#FFD700] transition"
-          >
+          <div className="flex items-center gap-2">
             <FaPhoneAlt className="text-[#FFD700]" />
-            <span>{firmInfo.contact.phoneDisplay}</span>
-          </a>
+            <a 
+              href={`tel:${firmInfo.contact.phone}`} 
+              className="hover:text-[#FFD700] transition"
+            >
+              {firmInfo.contact.phoneDisplay}
+            </a>
+            <span className="text-gray-500">/</span>
+            <a 
+              href={`tel:${firmInfo.contact.secondaryPhone}`} 
+              className="hover:text-[#FFD700] transition"
+            >
+              {firmInfo.contact.secondaryPhoneDisplay}
+            </a>
+          </div>
           <span className="hidden sm:inline text-gray-600">•</span>
           <a 
             href={`mailto:${firmInfo.contact.email}`} 

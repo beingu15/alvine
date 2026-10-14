@@ -79,9 +79,7 @@ function ServicesContent() {
   return (
     <div className="relative min-h-screen bg-[#050911] text-white">
       {/* Navbar */}
-      <div className="absolute left-0 w-full z-50">
-        <Navbar />
-      </div>
+      <Navbar />
 
       {/* Hero Section */}
       <div className="relative w-full h-[400px] md:h-[460px] flex items-center justify-center overflow-hidden">
@@ -352,6 +350,12 @@ function ServicesContent() {
               className="px-8 py-3.5 rounded-full bg-white/10 hover:bg-white/20 text-white font-medium text-sm border border-white/20 transition"
             >
               Call {firmInfo.contact.phoneDisplay}
+            </a>
+            <a
+              href={`tel:${firmInfo.contact.secondaryPhone}`}
+              className="px-8 py-3.5 rounded-full bg-white/10 hover:bg-white/20 text-white font-medium text-sm border border-white/20 transition"
+            >
+              Call {firmInfo.contact.secondaryPhoneDisplay}
             </a>
           </div>
         </div>

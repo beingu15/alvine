@@ -1,8 +1,8 @@
 export const firmInfo = {
   name: "ALVYNE Management Consultancy",
   shortName: "ALVYNE",
-  tagline: "Navigating Growth",
-  subTagline: "Navigating Growth, Building Resilience",
+  tagline: "Complete Tax Solutions & Business Management Consultancy",
+  subTagline: "Top Tax Consultant & CA/Accounting Firm in Kochi, Kerala",
   establishedYear: 2024,
   experienceYears: "3+",
   combinedExperience: "10+",
@@ -11,29 +11,35 @@ export const firmInfo = {
   complianceAccuracy: "100%",
 
   contact: {
-    address: "ALVYNE Management Consultancy, Corporate Office",
-    phone: "+918592823900",
-    phoneDisplay: "+918592823900",
-    email: "contact@alvyne.com",
-    supportEmail: "info@alvyne.com",
-    whatsapp: "+918592823900",
-    whatsappDisplay: "+918592823900",
+    address: "ALVYNE Management Consultancy, Corporate Office, Kochi, Kerala, India",
+    city: "Kochi",
+    state: "Kerala",
+    country: "India",
+    phone: "+919447210326",
+    phoneDisplay: "+91 94472 10326",
+    secondaryPhone: "+917907210326",
+    secondaryPhoneDisplay: "+91 79072 10326",
+    phonesDisplay: "+91 94472 10326 / +91 79072 10326",
+    email: "connect@alvyne.in",
+    supportEmail: "connect@alvyne.in",
+    whatsapp: "+919447210326",
+    whatsappDisplay: "+91 94472 10326",
     workingHours: "Mon - Sat: 09:00 AM - 06:00 PM",
-    googleBusinessLink: "https://maps.google.com/?q=ALVYNE+Management+Consultancy",
+    googleBusinessLink: "https://maps.google.com/?q=ALVYNE+Management+Consultancy+Kochi+Kerala",
   },
 
   socialLinks: {
-    linkedin: "https://linkedin.com/company/alvyne",
-    instagram: "https://instagram.com/alvyne_consultancy",
-    whatsapp: "https://wa.me/918592823900",
-    twitter: "https://twitter.com/alvyne",
-    facebook: "https://facebook.com/alvyneconsultancy",
+    linkedin: "",
+    instagram: "https://instagram.com/alvyne_consultants?srtk=dHIyZGp3cmxyNG8y",
+    whatsapp: "https://wa.me/919447210326",
+    twitter: "",
+    facebook: "",
   },
 
   about: {
-    headline: "Navigating Growth, Building Resilience",
+    headline: "Top Tax Consultant & Complete Tax Solutions in Kochi, Kerala",
     summary:
-      "At Alvyne, we believe financial success begins with clarity, trust, and the right guidance. We are a dedicated financial services firm specializing in Income Tax Return (ITR) filing, tax planning, GST services, accounting, compliance, and financial advisory. Our goal is to simplify complex financial processes so that individuals, entrepreneurs, startups, and businesses can focus on what they do best—growing with confidence.",
+      "At ALVYNE Management Consultancy, we are recognized as a top tax consultant and leading CA/accounting firm in Kochi, Kerala. We provide complete tax solutions, business management consultancy, Income Tax Return (ITR) filing, GST compliance, accounting, corporate governance, and virtual CFO services. Our mission is to simplify financial complexities for individuals, entrepreneurs, startups, and established enterprises across Kerala and India.",
     approach:
       "With a client-first approach, we combine technical expertise with practical solutions, helping our clients make informed financial decisions while staying compliant with evolving regulations.",
     journey:
@@ -107,18 +113,6 @@ export const firmInfo = {
 
   founders: [
     {
-      id: "albert-pradeep",
-      name: "Albert Pradeep",
-      role: "Partner & Associate",
-      designation: "Chartered Accountant (CA) & US CMA",
-      qualifications: ["CA (Chartered Accountant)", "US CMA (Chartered Management Accountant)"],
-      experience: "5+ Years Experience",
-      specialization: "Accounting, Direct & Indirect Taxation, Business Advisory & Professional Education",
-      image: "/albert1.jpg",
-      fallbackInitials: "AP",
-      bio: "Albert Pradeep is a qualified Chartered Accountant, US Chartered Management Accountant (CMA), and entrepreneur with over five years of experience in accounting, taxation, business advisory, and professional education. As a Freelance Accounts and Taxation Consultant and CMS Faculty, he has provided practical financial solutions while mentoring aspiring professionals. His expertise in business management, client relations, and strategic problem-solving has enabled him to build a strong professional network and trusted client relationships. He currently serves as an Associate with the organization, contributing his industry knowledge and commitment to delivering high-quality financial and business solutions.",
-    },
-    {
       id: "nelson-joseph",
       name: "Nelson Joseph",
       role: "Partner & Senior Consultant",
@@ -143,6 +137,19 @@ export const firmInfo = {
       bio: "Vyshnav Prakash has been working as an independent Accounts and Taxation Consultant for the past four years while pursuing his Chartered Accountancy qualifications through the Institute of Chartered Accountants of India (ICAI) and the Association of Chartered Certified Accountants (ACCA). He has worked with startups and MSMEs, providing services including business profiling, financial projections, investor due diligence, pre-screening assessments, and financial/statutory audits. Successfully balancing professional practice with academic pursuits has enabled him to stay abreast of the latest accounting standards, regulatory developments, and emerging trends in finance, taxation, and business management, allowing him to deliver practical, compliant, and value-driven solutions to clients.",
     },
   ],
+
+  strategicAdvisor: {
+    id: "albert-pradeep",
+    name: "Albert Pradeep",
+    role: "Strategic Advisor - Consultant",
+    designation: "Chartered Accountant (CA) & US CMA",
+    qualifications: ["CA (Chartered Accountant)", "US CMA (Chartered Management Accountant)"],
+    experience: "5+ Years Experience",
+    specialization: "Accounting, Direct & Indirect Taxation, Business Advisory & Professional Education",
+    image: "/albert1.jpg",
+    fallbackInitials: "AP",
+    bio: "Albert Pradeep is a qualified Chartered Accountant, US Chartered Management Accountant (CMA), and entrepreneur with over five years of experience in accounting, taxation, business advisory, and professional education. As a Freelance Accounts and Taxation Consultant and CMA Faculty, he has provided practical financial solutions while mentoring aspiring professionals. His expertise in business management, client relations, and strategic problem-solving has enabled him to build a strong professional network and trusted client relationships. He serves as Strategic Advisor - Consultant with the organization, contributing high-level industry knowledge and strategic direction to empower client growth.",
+  },
 
   serviceCategories: [
     {

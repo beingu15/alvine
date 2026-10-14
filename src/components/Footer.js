@@ -3,12 +3,12 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { firmInfo } from '@/data/firmData';
-import { 
-  FaPhoneAlt, 
-  FaEnvelope, 
-  FaMapMarkerAlt, 
-  FaWhatsapp, 
-  FaLinkedinIn, 
+import {
+  FaPhoneAlt,
+  FaEnvelope,
+  FaMapMarkerAlt,
+  FaWhatsapp,
+  FaLinkedinIn,
   FaInstagram,
   FaArrowRight
 } from 'react-icons/fa';
@@ -25,9 +25,9 @@ const Footer = () => {
                 <Image
                   src="/logo.png"
                   alt="ALVYNE Logo"
-                  width={50}
-                  height={65}
-                  className="h-14 sm:h-16 w-auto object-contain transition-transform duration-300 group-hover:scale-105 drop-shadow-[0_2px_8px_rgba(255,215,0,0.25)]"
+                  width={56}
+                  height={56}
+                  className="h-14 sm:h-16 w-auto rounded-xl object-contain transition-transform duration-300 group-hover:scale-105 shadow-md"
                 />
               </div>
               <div>
@@ -45,9 +45,7 @@ const Footer = () => {
             </p>
 
             <div className="pt-2">
-              <span className="inline-block px-3 py-1 rounded-full bg-[#FFD700]/10 border border-[#FFD700]/30 text-xs font-semibold text-[#FFD700]">
-                Tagline: {firmInfo.tagline}
-              </span>
+
             </div>
 
             {/* Social Icons */}
@@ -97,8 +95,8 @@ const Footer = () => {
                 { name: 'Contact & Inquiry', href: '/Contact' },
               ].map((link) => (
                 <li key={link.href}>
-                  <Link 
-                    href={link.href} 
+                  <Link
+                    href={link.href}
                     className="hover:text-[#FFD700] transition-colors flex items-center gap-1.5"
                   >
                     <FaArrowRight size={10} className="text-[#FFD700]/70" />
@@ -151,19 +149,27 @@ const Footer = () => {
                   {firmInfo.contact.address}
                 </span>
               </li>
-              <li className="flex items-center gap-2.5">
-                <FaPhoneAlt className="text-[#FFD700] shrink-0" size={13} />
-                <a 
-                  href={`tel:${firmInfo.contact.phone}`} 
-                  className="hover:text-[#FFD700] transition text-xs font-medium"
-                >
-                  {firmInfo.contact.phoneDisplay}
-                </a>
+              <li className="flex items-start gap-2.5">
+                <FaPhoneAlt className="text-[#FFD700] mt-1 shrink-0" size={13} />
+                <div className="flex flex-col gap-1 text-xs font-medium">
+                  <a
+                    href={`tel:${firmInfo.contact.phone}`}
+                    className="hover:text-[#FFD700] transition"
+                  >
+                    {firmInfo.contact.phoneDisplay}
+                  </a>
+                  <a
+                    href={`tel:${firmInfo.contact.secondaryPhone}`}
+                    className="hover:text-[#FFD700] transition text-gray-400 hover:text-[#FFD700]"
+                  >
+                    {firmInfo.contact.secondaryPhoneDisplay}
+                  </a>
+                </div>
               </li>
               <li className="flex items-center gap-2.5">
                 <FaEnvelope className="text-[#FFD700] shrink-0" size={13} />
-                <a 
-                  href={`mailto:${firmInfo.contact.email}`} 
+                <a
+                  href={`mailto:${firmInfo.contact.email}`}
                   className="hover:text-[#FFD700] transition text-xs"
                 >
                   {firmInfo.contact.email}
@@ -171,7 +177,7 @@ const Footer = () => {
               </li>
               <li className="flex items-center gap-2.5">
                 <FaWhatsapp className="text-green-400 shrink-0" size={14} />
-                <a 
+                <a
                   href={firmInfo.socialLinks.whatsapp}
                   target="_blank"
                   rel="noopener noreferrer"

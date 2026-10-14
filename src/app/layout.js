@@ -20,7 +20,7 @@ export const metadata = {
     default: `${firmInfo.name} | ${firmInfo.tagline}`,
     template: `%s | ${firmInfo.name}`,
   },
-  description: `${firmInfo.name} — Navigating Growth, Building Resilience. Dedicated financial services firm specializing in Income Tax, GST, accounting, compliance, and virtual CFO advisory.`,
+  description: `${firmInfo.name} — Navigating Growth, Building Resilience. Premier financial services firm in Kochi, Kerala specializing in Income Tax, GST, accounting, corporate compliance, and virtual CFO advisory.`,
   icons: {
     icon: "/favicon.ico",
     shortcut: "/logo.png",

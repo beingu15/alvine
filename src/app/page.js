@@ -11,24 +11,31 @@ import Script from "next/script";
 import { firmInfo } from "@/data/firmData";
 
 export const metadata = {
-  title: `${firmInfo.name} | ${firmInfo.tagline}`,
+  title: "Top Tax Consultant & CA/Accounting Firm in Kochi, Kerala | ALVYNE Management Consultancy",
   description:
-    "ALVYNE Management Consultancy is a premier financial services firm specializing in ITR filing, tax planning, GST, corporate compliance, accounting, and financial advisory.",
+    "ALVYNE is a top tax consultant and leading CA/accounting firm in Kochi, Kerala. We provide complete tax solutions, business management consultancy, ITR filing, GST returns, company incorporation, and virtual CFO advisory.",
   keywords: [
-    "ALVYNE Management Consultancy",
-    "Tax Planning Kochi",
-    "ITR Filing India",
-    "GST Registration and Returns",
-    "Virtual CFO Services",
-    "Company Incorporation",
-    "Corporate Compliance ROC",
-    "Chartered Accountant Advisory",
-    "Startup Financial Guidance",
+    "top tax consultant in kochi kerala",
+    "top ca/accounting firms in kochi kerala",
+    "ca firms in kochi kerala",
+    "accounting firms in kochi kerala",
+    "business management consultant",
+    "business management consultancy in kochi",
+    "complete tax solutions",
+    "complete tax solutions in kochi kerala",
+    "top tax consultant kochi",
+    "chartered accountant kochi kerala",
+    "gst registration and return filing kochi",
+    "income tax return itr filing kochi",
+    "company registration kochi kerala",
+    "virtual cfo services kerala",
+    "corporate compliance advisory kochi",
+    "alvyne management consultancy",
   ],
   openGraph: {
-    title: `${firmInfo.name} | ${firmInfo.tagline}`,
+    title: "Top Tax Consultant & CA/Accounting Firm in Kochi, Kerala | ALVYNE",
     description:
-      "Navigating Growth, Building Resilience. Dedicated financial services firm specializing in Income Tax, GST, accounting, compliance, and virtual CFO advisory.",
+      "ALVYNE Management Consultancy: Top tax consultant and CA/accounting firm in Kochi, Kerala delivering complete tax solutions, business management consulting, GST, and corporate compliance.",
     url: "https://alvine-mu.vercel.app",
     siteName: firmInfo.name,
     images: [
@@ -36,7 +43,7 @@ export const metadata = {
         url: "https://alvine-mu.vercel.app/logo.png",
         width: 1200,
         height: 630,
-        alt: `${firmInfo.name} Logo and Branding`,
+        alt: "ALVYNE Top Tax Consultant and CA Accounting Firm Kochi Kerala",
       },
     ],
     locale: "en_US",
@@ -44,9 +51,9 @@ export const metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: `${firmInfo.name} | ${firmInfo.tagline}`,
+    title: "Top Tax Consultant & CA Firm in Kochi, Kerala | Complete Tax Solutions",
     description:
-      "Strategic financial guidance, tax planning, and statutory compliance for businesses, startups, and individuals.",
+      "Complete tax solutions and business management consultancy in Kochi, Kerala. Direct tax, GST, and corporate advisory.",
     images: ["https://alvine-mu.vercel.app/logo.png"],
   },
   alternates: {
@@ -57,24 +64,66 @@ export const metadata = {
 export default function Home() {
   const jsonLd = {
     "@context": "https://schema.org",
-    "@type": "FinancialService",
+    "@type": "AccountingService",
     name: firmInfo.name,
     legalName: firmInfo.name,
-    description: firmInfo.about.summary,
+    description: "Top tax consultant and CA/accounting firm in Kochi, Kerala providing complete tax solutions, business management consultancy, statutory compliance, and virtual CFO services.",
     url: "https://alvine-mu.vercel.app",
     logo: "https://alvine-mu.vercel.app/logo.png",
+    image: "https://alvine-mu.vercel.app/logo.png",
     foundingDate: `${firmInfo.establishedYear}`,
-    slogan: firmInfo.tagline,
+    slogan: "Complete Tax Solutions & Business Management Consultancy in Kochi, Kerala",
     telephone: firmInfo.contact.phone,
     email: firmInfo.contact.email,
+    priceRange: "₹₹",
+    currenciesAccepted: "INR",
+    paymentAccepted: "Cash, Credit Card, Bank Transfer, UPI",
+    knowsAbout: [
+      "Income Tax Return Filing",
+      "GST Registration and Compliance",
+      "Chartered Accountancy",
+      "Accounting and Bookkeeping",
+      "Business Management Consulting",
+      "Complete Tax Solutions",
+      "Company Incorporation",
+      "Virtual CFO Services",
+      "Tax Audit and Due Diligence",
+    ],
+    serviceType: [
+      "Tax Consultant",
+      "Chartered Accountant",
+      "Accounting Firm",
+      "Business Management Consultant",
+      "Tax Preparation Service",
+      "Corporate Compliance Advisory",
+    ],
     address: {
       "@type": "PostalAddress",
       streetAddress: firmInfo.contact.address,
+      addressLocality: "Kochi",
+      addressRegion: "Kerala",
       addressCountry: "IN",
     },
-    openingHours: "Mo-Sa 09:00-18:00",
+    geo: {
+      "@type": "GeoCoordinates",
+      latitude: "9.9816",
+      longitude: "76.2999",
+    },
+    areaServed: [
+      { "@type": "City", name: "Kochi" },
+      { "@type": "City", name: "Ernakulam" },
+      { "@type": "AdministrativeArea", name: "Kerala" },
+      { "@type": "Country", name: "India" },
+    ],
+    openingHoursSpecification: [
+      {
+        "@type": "OpeningHoursSpecification",
+        dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+        opens: "09:00",
+        closes: "18:00",
+      },
+    ],
     sameAs: [
-      firmInfo.socialLinks.linkedin,
       firmInfo.socialLinks.instagram,
       firmInfo.socialLinks.whatsapp,
     ],
@@ -92,9 +141,7 @@ export default function Home() {
 
       <SubHeader />
 
-      <div className="absolute left-0 w-full z-50">
-        <Navbar />
-      </div>
+      <Navbar />
 
       <main className="relative z-10">
         <Banner />

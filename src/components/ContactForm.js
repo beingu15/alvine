@@ -15,6 +15,7 @@ export default function ContactForm({ initialService = '' }) {
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [errorMessage, setErrorMessage] = useState('');
 
   useEffect(() => {
     if (initialService) {
@@ -27,25 +28,40 @@ export default function ContactForm({ initialService = '' }) {
     setFormData(prev => ({ ...prev, [name]: value }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     setIsSubmitting(true);
-    
-    // Simulate form submission
-    setTimeout(() => {
-      setIsSubmitting(false);
-      setIsSubmitted(true);
-      setTimeout(() => {
-        setIsSubmitted(false);
+    setErrorMessage('');
+
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+
+      const data = await response.json();
+
+      if (response.ok && data.success) {
+        setIsSubmitted(true);
         setFormData({
           name: '',
           email: '',
           phone: '',
-          serviceCategory: 'Incorporation & Setup',
+          serviceCategory: initialService || 'Incorporation & Setup',
           message: ''
         });
-      }, 4000);
-    }, 1200);
+      } else {
+        setErrorMessage(data.error || 'Failed to submit inquiry. Please try again or reach out via WhatsApp/Phone.');
+      }
+    } catch (err) {
+      console.error('Contact submission error:', err);
+      setErrorMessage('A network error occurred. Please try again or reach out directly via WhatsApp.');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -78,12 +94,26 @@ export default function ContactForm({ initialService = '' }) {
             <FaCheck className="text-[#FFD700] text-2xl" />
           </div>
           <h4 className="text-2xl font-bold text-white mb-2">Inquiry Received!</h4>
-          <p className="text-gray-300 text-sm max-w-sm mx-auto">
-            Thank you for reaching out to {firmInfo.name}. One of our partners will contact you shortly.
+          <p className="text-gray-300 text-sm max-w-sm mx-auto mb-6">
+            Thank you for reaching out to {firmInfo.name}. Your inquiry has been forwarded to our partners and we will contact you shortly.
           </p>
+          <button
+            onClick={() => setIsSubmitted(false)}
+            className="px-6 py-2.5 rounded-full bg-white/10 hover:bg-[#FFD700] text-gray-200 hover:text-black font-semibold text-xs tracking-wider uppercase transition border border-white/15"
+          >
+            Send Another Inquiry
+          </button>
         </motion.div>
       ) : (
         <form onSubmit={handleSubmit} className="space-y-5">
+          {errorMessage && (
+            <div className="p-4 rounded-xl bg-red-500/10 border border-red-500/30 text-red-200 text-xs sm:text-sm">
+              <p className="font-semibold">{errorMessage}</p>
+              <p className="text-gray-400 text-xs mt-1">
+                You can also call us directly at <a href={`tel:${firmInfo.contact.phone}`} className="text-[#FFD700] underline">{firmInfo.contact.phoneDisplay}</a> or <a href={firmInfo.socialLinks.whatsapp} target="_blank" rel="noopener noreferrer" className="text-green-400 underline">Chat on WhatsApp</a>.
+              </p>
+            </div>
+          )}
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
             <div>
               <label className="block text-xs font-semibold text-gray-300 uppercase tracking-wider mb-2">

@@ -26,9 +26,7 @@ export default function AboutPage() {
   return (
     <div className="bg-[#050911] text-white min-h-screen">
       {/* Navbar */}
-      <div className="absolute left-0 w-full z-50">
-        <Navbar />
-      </div>
+      <Navbar />
 
       {/* Hero Section */}
       <div className="relative w-full h-[420px] md:h-[480px] flex items-center justify-center overflow-hidden">
@@ -247,7 +245,7 @@ export default function AboutPage() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
             {firmInfo.founders.map((founder, index) => (
               <motion.div
                 key={founder.id}
@@ -259,31 +257,72 @@ export default function AboutPage() {
               >
                 <div>
                   {/* Photo / Portrait Header */}
-                  <div className="relative w-full h-80 bg-gradient-to-b from-[#162035] to-[#0d1424] overflow-hidden flex items-center justify-center">
+
+
+                  {/* Organic Blob — Founder Portrait Header */}
+                  <div className="relative h-[360px] w-full overflow-hidden bg-gradient-to-br from-[#162035] via-[#10192b] to-[#0d1424] sm:h-[400px]">
+
+                    {/* Decorative organic gold outline */}
+                    <div
+                      aria-hidden="true"
+                      className="absolute inset-x-7 top-5 bottom-0 border border-[#FFD700]/40 transition-transform duration-700 group-hover:rotate-2 sm:inset-x-10 sm:top-6"
+                      style={{
+                        borderRadius: '58% 42% 35% 65% / 40% 35% 65% 60%',
+                      }}
+                    />
+
                     {founder.image ? (
-                      <Image
-                        src={founder.image}
-                        alt={founder.name}
-                        fill
-                        className="object-cover object-top group-hover:scale-105 transition-transform duration-500"
-                      />
+                      <div
+                        className="absolute inset-x-9 top-3 bottom-3 overflow-hidden shadow-2xl transition-all duration-700 group-hover:scale-[1.02] sm:inset-x-12 sm:top-5 sm:bottom-4"
+                        style={{
+                          borderRadius: '58% 42% 35% 65% / 40% 35% 65% 60%',
+                        }}
+                      >
+                        <Image
+                          src={founder.image}
+                          alt={founder.name}
+                          fill
+                          sizes="(max-width: 768px) 100vw, 50vw"
+                          className="object-cover object-top transition-transform duration-700 ease-out group-hover:scale-105"
+                        />
+
+                        {/* Cinematic navy gradient */}
+                        <div className="absolute inset-0 bg-gradient-to-t from-[#0d1424] via-[#0d1424]/10 to-transparent" />
+
+                        {/* Subtle gold glow */}
+                        <div
+                          aria-hidden="true"
+                          className="absolute inset-0 bg-gradient-to-br from-[#FFD700]/10 via-transparent to-transparent"
+                        />
+                      </div>
                     ) : (
-                      <div className="flex flex-col items-center justify-center p-6 text-center">
-                        <div className="w-24 h-24 rounded-full bg-gradient-to-tr from-[#FFD700]/20 to-yellow-500/30 border-2 border-[#FFD700]/40 flex items-center justify-center text-[#FFD700] text-3xl font-black mb-3 shadow-inner">
+                      <div className="absolute inset-0 flex flex-col items-center justify-center px-6 text-center">
+                        <div className="flex h-24 w-24 items-center justify-center rounded-full border-2 border-[#FFD700]/40 bg-gradient-to-tr from-[#FFD700]/20 to-yellow-500/30 text-3xl font-black text-[#FFD700] shadow-inner">
                           {founder.fallbackInitials}
                         </div>
 
-                        <span className="text-xs uppercase tracking-widest text-[#FFD700] font-semibold">
+                        <span className="mt-4 text-xs font-semibold uppercase tracking-widest text-[#FFD700]">
                           Founding Partner
                         </span>
 
-                        <span className="text-sm font-medium text-gray-300 mt-1">
+                        <span className="mt-1 text-sm font-medium text-gray-300">
                           {firmInfo.name}
                         </span>
                       </div>
                     )}
 
-                    <div className="absolute inset-0 bg-gradient-to-t from-[#0d1424] via-transparent to-transparent" />
+                    {/* Partner badge */}
+                    <div className="absolute bottom-6 left-6 z-10 sm:bottom-7 sm:left-8">
+                      <span className="inline-flex items-center rounded-full border border-[#FFD700]/30 bg-[#090e18]/80 px-3 py-1.5 text-[10px] font-semibold uppercase tracking-[0.18em] text-[#FFD700] shadow-lg backdrop-blur-md">
+                        Founding Partner
+                      </span>
+                    </div>
+
+                    {/* Floating gold accent */}
+                    <div
+                      aria-hidden="true"
+                      className="absolute right-5 top-8 h-12 w-12 rounded-full border border-[#FFD700]/30 bg-[#FFD700]/10 backdrop-blur-md transition-transform duration-500 group-hover:translate-x-1 group-hover:-translate-y-1"
+                    />
                   </div>
 
                   {/* Body Content */}
@@ -337,6 +376,99 @@ export default function AboutPage() {
               </motion.div>
             ))}
           </div>
+
+          {/* Additional Section: Strategic Advisor - Consultant */}
+          {firmInfo.strategicAdvisor && (
+            <div className="mt-20 pt-16 border-t border-white/10">
+              <div className="text-center max-w-3xl mx-auto mb-12">
+                <span className="text-xs font-bold text-[#FFD700] uppercase tracking-widest block mb-2">
+                  Advisory Leadership
+                </span>
+                <h3 className="text-2xl sm:text-3xl md:text-4xl font-black text-white">
+                  Strategic Advisor <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#FFD700] via-yellow-300 to-[#FFA500]">- Consultant</span>
+                </h3>
+                <p className="mt-3 text-sm sm:text-base text-gray-300">
+                  Providing strategic oversight, corporate financial governance, and high-level business advisory.
+                </p>
+              </div>
+
+              <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6 }}
+                className="max-w-4xl mx-auto bg-gradient-to-br from-[#0e172a] via-[#0d1424] to-[#080d16] border border-[#FFD700]/30 hover:border-[#FFD700]/60 rounded-3xl overflow-hidden shadow-2xl transition-all duration-300 flex flex-col md:flex-row items-stretch"
+              >
+                {/* Advisor Photo */}
+                <div className="md:w-5/12 relative min-h-[340px] md:min-h-full bg-gradient-to-b from-[#162035] to-[#0d1424] overflow-hidden">
+                  <Image
+                    src={firmInfo.strategicAdvisor.image}
+                    alt={firmInfo.strategicAdvisor.name}
+                    fill
+                    className="object-cover object-top hover:scale-105 transition-transform duration-500"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t md:bg-gradient-to-r from-[#0d1424] md:from-transparent to-transparent md:to-[#0d1424]/80" />
+                  <div className="absolute top-4 left-4 z-10">
+                    <span className="px-3 py-1 rounded-full bg-black/60 backdrop-blur-md border border-[#FFD700]/40 text-[#FFD700] text-xs font-bold uppercase tracking-wider">
+                      Strategic Advisor
+                    </span>
+                  </div>
+                </div>
+
+                {/* Advisor Details */}
+                <div className="md:w-7/12 p-8 sm:p-10 flex flex-col justify-between">
+                  <div>
+                    <div className="flex items-center justify-between mb-3">
+                      <span className="text-xs font-semibold px-3 py-1 rounded-full bg-[#FFD700]/15 border border-[#FFD700]/30 text-[#FFD700]">
+                        {firmInfo.strategicAdvisor.experience}
+                      </span>
+                      <span className="text-xs text-gray-400 font-medium">
+                        Associate & Faculty
+                      </span>
+                    </div>
+
+                    <h4 className="text-2xl sm:text-3xl font-extrabold text-white">
+                      {firmInfo.strategicAdvisor.name}
+                    </h4>
+
+                    <p className="text-sm font-semibold text-[#FFD700] mt-1">
+                      {firmInfo.strategicAdvisor.designation}
+                    </p>
+
+                    <div className="mt-3 flex flex-wrap gap-1.5">
+                      {firmInfo.strategicAdvisor.qualifications.map((q, qIdx) => (
+                        <span key={qIdx} className="text-[11px] px-2.5 py-0.5 rounded-md bg-white/5 border border-white/10 text-gray-300">
+                          {q}
+                        </span>
+                      ))}
+                    </div>
+
+                    <div className="mt-5 pt-4 border-t border-white/10">
+                      <p className="text-xs text-gray-400 font-semibold uppercase tracking-wider mb-1">
+                        Specialization:
+                      </p>
+                      <p className="text-xs text-gray-300 leading-relaxed mb-4">
+                        {firmInfo.strategicAdvisor.specialization}
+                      </p>
+                      <p className="text-xs sm:text-sm text-gray-300 leading-relaxed">
+                        {firmInfo.strategicAdvisor.bio}
+                      </p>
+                    </div>
+                  </div>
+
+                  <div className="mt-6 pt-5 border-t border-white/10">
+                    <Link
+                      href="/Contact"
+                      className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl bg-[#FFD700] hover:bg-[#E6C200] text-black font-bold text-xs uppercase tracking-wider transition shadow-lg transform hover:scale-[1.02]"
+                    >
+                      <span>Consult with {firmInfo.strategicAdvisor.name.split(' ')[0]}</span>
+                      <FaArrowRight size={12} />
+                    </Link>
+                  </div>
+                </div>
+              </motion.div>
+            </div>
+          )}
         </div>
       </section>
 
