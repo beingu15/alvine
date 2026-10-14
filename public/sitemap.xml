@@ -1,39 +1,37 @@
+
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-        xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
-        http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
-  <!-- Homepage - Premier Financial & Business Consultancy in Kochi, Kerala -->
+  <!-- Homepage -->
   <url>
-    <loc>https://alvine-mu.vercel.app/</loc>
-    <lastmod>2026-10-14T11:40:00+00:00</lastmod>
+    <loc>https://alvyne.in/</loc>
+    <lastmod>2026-10-14</lastmod>
     <changefreq>daily</changefreq>
-    <priority>1.00</priority>
+    <priority>1.0</priority>
   </url>
 
-  <!-- Services Catalog - Tax, GST, Compliance, Virtual CFO & Business Setup in Kerala -->
+  <!-- Services -->
   <url>
-    <loc>https://alvine-mu.vercel.app/Services</loc>
-    <lastmod>2026-10-14T11:40:00+00:00</lastmod>
+    <loc>https://alvyne.in/Services</loc>
+    <lastmod>2026-10-14</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.90</priority>
+    <priority>0.9</priority>
   </url>
 
-  <!-- About Us - Founding Partners, Strategic Advisors & Firm Story -->
+  <!-- About -->
   <url>
-    <loc>https://alvine-mu.vercel.app/About</loc>
-    <lastmod>2026-10-14T11:40:00+00:00</lastmod>
+    <loc>https://alvyne.in/About</loc>
+    <lastmod>2026-10-14</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.85</priority>
+    <priority>0.8</priority>
   </url>
 
-  <!-- Contact & Consultation - Corporate Office in Kochi, Kerala -->
+  <!-- Contact -->
   <url>
-    <loc>https://alvine-mu.vercel.app/Contact</loc>
-    <lastmod>2026-10-14T11:40:00+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.90</priority>
+    <loc>https://alvyne.in/Contact</loc>
+    <lastmod>2026-10-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
   </url>
 
 </urlset>
