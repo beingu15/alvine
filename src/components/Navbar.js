@@ -74,11 +74,11 @@ export default function Navbar() {
 
   return (
     <header
-      className={`fixed left-0 w-full z-50 transition-[top,background-color,border-color,box-shadow] duration-250 ease-out ${topClass} ${headerBgClass} py-3 md:py-3.5`}
+      className={`fixed left-0 w-full z-50 transition-[top,background-color,border-color,box-shadow] duration-250 ease-out ${topClass} ${headerBgClass} py-2.5 sm:py-3 md:py-3.5`}
     >
-      <div className="container mx-auto flex items-center justify-between px-6">
+      <div className="container mx-auto flex items-center justify-between px-4 sm:px-6">
         {/* Logo & Brand Name */}
-        <Link href="/" className="flex items-center space-x-3 group">
+        <Link href="/" className="flex items-center space-x-2.5 sm:space-x-3 group">
           <div className="relative flex items-center justify-center shrink-0">
             <Image
               src="/logo.png"
@@ -86,26 +86,26 @@ export default function Navbar() {
               width={56}
               height={56}
               priority
-              className="h-11 sm:h-12 md:h-13 w-auto rounded-xl object-contain transition-transform duration-300 group-hover:scale-105 shadow-md"
+              className="h-9 sm:h-11 md:h-12 w-auto rounded-xl object-contain transition-transform duration-300 group-hover:scale-105 shadow-md"
             />
           </div>
           <div className="flex flex-col">
-            <span className="text-2xl sm:text-3xl font-extrabold tracking-wider text-white group-hover:text-[#FFD700] transition-colors leading-tight">
+            <span className="text-xl sm:text-2xl md:text-3xl font-extrabold tracking-wider text-white group-hover:text-[#FFD700] transition-colors leading-tight">
               ALVYNE
             </span>
-            <span className="text-[10px] sm:text-[11px] font-medium tracking-widest text-[#FFD700] uppercase -mt-0.5">
+            <span className="text-[9px] sm:text-[10px] md:text-[11px] font-medium tracking-widest text-[#FFD700] uppercase -mt-0.5 sm:-mt-1">
               Management Consultancy
             </span>
           </div>
         </Link>
 
         {/* Desktop Navigation */}
-        <nav className="hidden lg:flex items-center space-x-8" aria-label="Desktop Navigation">
+        <nav className="hidden lg:flex items-center space-x-7 xl:space-x-8" aria-label="Desktop Navigation">
           {navLinks.map((item) => (
             <Link
               key={item.href}
               href={item.href}
-              className={`text-sm font-medium transition-colors tracking-wide ${
+              className={`text-xs xl:text-sm font-medium transition-colors tracking-wide ${
                 pathname === item.href
                   ? 'text-[#FFD700] border-b-2 border-[#FFD700] pb-1'
                   : 'text-gray-200 hover:text-[#FFD700]'
@@ -118,9 +118,9 @@ export default function Navbar() {
           {/* Quick Call Action */}
           <a
             href={`tel:${firmInfo.contact.phone}`}
-            className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full border border-[#FFD700]/40 bg-gradient-to-r from-[#FFD700]/15 to-amber-500/10 hover:from-[#FFD700] hover:to-yellow-400 text-[#FFD700] hover:text-black font-bold text-xs tracking-wider uppercase transition-all duration-300 shadow-sm hover:shadow-[0_4px_16px_rgba(255,215,0,0.3)] transform hover:scale-105 active:scale-95"
+            className="inline-flex items-center gap-2 px-4 py-2 xl:px-5 xl:py-2.5 rounded-full border border-[#FFD700]/40 bg-gradient-to-r from-[#FFD700]/15 to-amber-500/10 hover:from-[#FFD700] hover:to-yellow-400 text-[#FFD700] hover:text-black font-bold text-[11px] xl:text-xs tracking-wider uppercase transition-all duration-300 shadow-sm hover:shadow-[0_4px_16px_rgba(255,215,0,0.3)] transform hover:scale-105 active:scale-95"
           >
-            <PhoneCall size={14} />
+            <PhoneCall className="w-3.5 h-3.5" />
             <span>{firmInfo.contact.phoneDisplay}</span>
           </a>
         </nav>
@@ -128,21 +128,19 @@ export default function Navbar() {
         {/* Mobile Menu Button - Stable crossfade animation without DOM node replacement */}
         <button
           type="button"
-          className="lg:hidden relative w-11 h-11 flex items-center justify-center rounded-xl bg-white/5 border border-white/10 hover:border-[#FFD700]/40 text-[#FFD700] transition active:scale-95 cursor-pointer"
+          className="lg:hidden relative w-9 h-9 sm:w-11 sm:h-11 flex items-center justify-center rounded-xl bg-white/5 border border-white/10 hover:border-[#FFD700]/40 text-[#FFD700] transition active:scale-95 cursor-pointer"
           onClick={() => setIsOpen((prev) => !prev)}
           aria-expanded={isOpen}
           aria-label="Toggle navigation menu"
         >
-          <div className="relative w-6 h-6 flex items-center justify-center">
+          <div className="relative w-5 h-5 sm:w-6 sm:h-6 flex items-center justify-center">
             <Menu
-              size={22}
-              className={`absolute transition-all duration-200 ease-in-out ${
+              className={`w-5 h-5 sm:w-6 sm:h-6 absolute transition-all duration-200 ease-in-out ${
                 isOpen ? 'opacity-0 rotate-90 scale-75 pointer-events-none' : 'opacity-100 rotate-0 scale-100'
               }`}
             />
             <X
-              size={22}
-              className={`absolute transition-all duration-200 ease-in-out ${
+              className={`w-5 h-5 sm:w-6 sm:h-6 absolute transition-all duration-200 ease-in-out ${
                 isOpen ? 'opacity-100 rotate-0 scale-100' : 'opacity-0 -rotate-90 scale-75 pointer-events-none'
               }`}
             />
@@ -160,12 +158,12 @@ export default function Navbar() {
             transition={{ duration: 0.22, ease: [0.16, 1, 0.3, 1] }}
             className="lg:hidden w-full overflow-hidden bg-[#07101d] border-b border-white/10 shadow-2xl"
           >
-            <div className="px-6 pt-4 pb-6 space-y-2.5 text-center">
+            <div className="px-5 sm:px-6 pt-3 sm:pt-4 pb-5 sm:pb-6 space-y-2 text-center">
               {navLinks.map((item) => (
                 <Link
                   key={item.href}
                   href={item.href}
-                  className={`block py-3 px-4 rounded-xl text-base font-medium transition-all ${
+                  className={`block py-2.5 sm:py-3 px-4 rounded-xl text-sm sm:text-base font-medium transition-all ${
                     pathname === item.href
                       ? 'bg-[#FFD700]/15 text-[#FFD700] font-bold'
                       : 'text-gray-200 hover:text-[#FFD700] hover:bg-white/5'
@@ -176,21 +174,21 @@ export default function Navbar() {
                 </Link>
               ))}
 
-              <div className="pt-3 flex flex-col gap-2">
+              <div className="pt-2 sm:pt-3 flex flex-col gap-2">
                 <a
                   href={`tel:${firmInfo.contact.phone}`}
-                  className="inline-flex items-center justify-center gap-2 w-full py-3.5 rounded-full bg-gradient-to-r from-[#FFD700] to-yellow-400 text-black font-extrabold text-sm tracking-wide shadow-lg active:scale-95 transition-all"
+                  className="inline-flex items-center justify-center gap-2 w-full py-3 rounded-full bg-gradient-to-r from-[#FFD700] to-yellow-400 text-black font-extrabold text-xs sm:text-sm tracking-wide shadow-lg active:scale-95 transition-all"
                   onClick={() => setIsOpen(false)}
                 >
-                  <PhoneCall size={16} />
+                  <PhoneCall className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
                   <span>Call {firmInfo.contact.phoneDisplay}</span>
                 </a>
                 <a
                   href={`tel:${firmInfo.contact.secondaryPhone}`}
-                  className="inline-flex items-center justify-center gap-2 w-full py-3 rounded-full bg-white/10 border border-white/20 text-white font-semibold text-sm tracking-wide hover:bg-white/20 active:scale-95 transition-all"
+                  className="inline-flex items-center justify-center gap-2 w-full py-2.5 rounded-full bg-white/10 border border-white/20 text-white font-semibold text-xs sm:text-sm tracking-wide hover:bg-white/20 active:scale-95 transition-all"
                   onClick={() => setIsOpen(false)}
                 >
-                  <PhoneCall size={16} />
+                  <PhoneCall className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
                   <span>Call {firmInfo.contact.secondaryPhoneDisplay}</span>
                 </a>
               </div>

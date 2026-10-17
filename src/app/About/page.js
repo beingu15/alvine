@@ -2,17 +2,12 @@ import About from "./AboutPage";
 import { firmInfo } from "@/data/firmData";
 
 export const metadata = {
-  title: "About Us | Top CA/Accounting Firm & Business Management Consultant in Kochi, Kerala",
+  title: "About Us | Founding Partners & Strategic Advisors in Kochi, Kerala",
   description:
-    "Learn about ALVYNE Management Consultancy in Kochi, Kerala. Top tax consultant and CA/accounting firm founded by Nelson Joseph, Vyshnav Prakash, and strategic advisor Albert Pradeep (CA & US CMA), delivering complete tax solutions.",
+    "Learn about ALVYNE Management Consultancy based in Kochi, Kerala. Meet our founding partners Nelson Joseph, Vyshnav Prakash, and strategic advisor Albert Pradeep (CA & US CMA). Delivering excellence in taxation, compliance, and financial advisory.",
   keywords: [
-    "top tax consultant in kochi kerala",
-    "top ca/accounting firms in kochi kerala",
-    "ca firms in kochi kerala",
-    "accounting firms in kochi kerala",
-    "business management consultant",
-    "complete tax solutions",
     "About ALVYNE Kochi",
+    "Financial Consultants Kochi Kerala",
     "Nelson Joseph Senior Accountant",
     "Vyshnav Prakash Tax Consultant",
     "Albert Pradeep CA Kochi",
@@ -21,9 +16,9 @@ export const metadata = {
     "Management Consultants Ernakulam",
   ],
   openGraph: {
-    title: `About ${firmInfo.name} | Top CA & Tax Advisory Firm in Kochi, Kerala`,
+    title: `About ${firmInfo.name} | Financial Leadership in Kochi, Kerala`,
     description:
-      "ALVYNE is a top tax consultant, CA accounting firm, and business management consultancy in Kochi, Kerala providing complete tax solutions and financial leadership.",
+      "Founded in 2024, ALVYNE provides strategic financial guidance, taxation, compliance, and virtual CFO advisory across Kochi, Kerala, and beyond.",
     url: "https://alvine-mu.vercel.app/About",
     siteName: firmInfo.name,
     images: [

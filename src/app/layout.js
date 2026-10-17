@@ -15,7 +15,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata = {
-  metadataBase: new URL("https://alvine-mu.vercel.app"),
+  metadataBase: new URL("https://alvyne.in"),
   title: {
     default: `${firmInfo.name} | ${firmInfo.tagline}`,
     template: `%s | ${firmInfo.name}`,

@@ -1,8 +1,8 @@
 export const firmInfo = {
   name: "ALVYNE Management Consultancy",
   shortName: "ALVYNE",
-  tagline: "Complete Tax Solutions & Business Management Consultancy",
-  subTagline: "Top Tax Consultant & CA/Accounting Firm in Kochi, Kerala",
+  tagline: "Navigating Growth",
+  subTagline: "Navigating Growth, Building Resilience",
   establishedYear: 2024,
   experienceYears: "3+",
   combinedExperience: "10+",
@@ -37,9 +37,9 @@ export const firmInfo = {
   },
 
   about: {
-    headline: "Top Tax Consultant & Complete Tax Solutions in Kochi, Kerala",
+    headline: "Navigating Growth, Building Resilience",
     summary:
-      "At ALVYNE Management Consultancy, we are recognized as a top tax consultant and leading CA/accounting firm in Kochi, Kerala. We provide complete tax solutions, business management consultancy, Income Tax Return (ITR) filing, GST compliance, accounting, corporate governance, and virtual CFO services. Our mission is to simplify financial complexities for individuals, entrepreneurs, startups, and established enterprises across Kerala and India.",
+      "At Alvyne, we believe financial success begins with clarity, trust, and the right guidance. We are a dedicated financial services firm specializing in Income Tax Return (ITR) filing, tax planning, GST services, accounting, compliance, and financial advisory. Our goal is to simplify complex financial processes so that individuals, entrepreneurs, startups, and businesses can focus on what they do best—growing with confidence.",
     approach:
       "With a client-first approach, we combine technical expertise with practical solutions, helping our clients make informed financial decisions while staying compliant with evolving regulations.",
     journey:
@@ -148,7 +148,7 @@ export const firmInfo = {
     specialization: "Accounting, Direct & Indirect Taxation, Business Advisory & Professional Education",
     image: "/albert1.jpg",
     fallbackInitials: "AP",
-    bio: "Albert Pradeep is a qualified Chartered Accountant, US Chartered Management Accountant (CMA), and entrepreneur with over five years of experience in accounting, taxation, business advisory, and professional education. As a Freelance Accounts and Taxation Consultant and CMA Faculty, he has provided practical financial solutions while mentoring aspiring professionals. His expertise in business management, client relations, and strategic problem-solving has enabled him to build a strong professional network and trusted client relationships. He serves as Strategic Advisor - Consultant with the organization, contributing high-level industry knowledge and strategic direction to empower client growth.",
+    bio: "Albert Pradeep is a qualified Chartered Accountant, US Chartered Management Accountant (CMA), and entrepreneur with over five years of experience in accounting, taxation, business advisory, and professional education. As a Freelance Accounts and Taxation Consultant and CMS Faculty, he has provided practical financial solutions while mentoring aspiring professionals. His expertise in business management, client relations, and strategic problem-solving has enabled him to build a strong professional network and trusted client relationships. He serves as Strategic Advisor - Consultant with the organization, contributing high-level industry knowledge and strategic direction to empower client growth.",
   },
 
   serviceCategories: [

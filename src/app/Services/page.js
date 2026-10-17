@@ -2,18 +2,10 @@ import Services from './ServicesClient';
 import { firmInfo } from '@/data/firmData';
 
 export const metadata = {
-  title: 'Complete Tax Solutions & Business Management Consultancy in Kochi, Kerala | ALVYNE',
+  title: 'Our Services | Tax, GST, Company Registration & Virtual CFO in Kochi, Kerala',
   description:
-    "Complete tax solutions and business management consultancy in Kochi, Kerala by ALVYNE. As a top tax consultant and leading CA/accounting firm, we provide end-to-end ITR filing, GST returns, company incorporation, and virtual CFO services.",
+    "Explore business setup, taxation, and advisory services by ALVYNE Management Consultancy in Kochi, Kerala: Private Limited Incorporation, GST Registration & Returns, Direct Tax ITR, ROC Compliance, and Virtual CFO Services.",
   keywords: [
-    "complete tax solutions",
-    "complete tax solutions in kochi kerala",
-    "top tax consultant in kochi kerala",
-    "top ca/accounting firms in kochi kerala",
-    "ca firms in kochi kerala",
-    "accounting firms in kochi kerala",
-    "business management consultant",
-    "business management consultancy in kochi kerala",
     "Company Registration Kochi",
     "Private Limited Incorporation Kerala",
     "GST Registration and Returns Kochi",
@@ -26,9 +18,9 @@ export const metadata = {
     "ALVYNE Services Kerala",
   ],
   openGraph: {
-    title: `Complete Tax Solutions & Business Management Consultancy in Kochi, Kerala | ${firmInfo.name}`,
+    title: `Financial & Corporate Services in Kochi, Kerala | ${firmInfo.name}`,
     description:
-      "End-to-end complete tax solutions, corporate statutory compliance, business management consulting, and virtual CFO advisory for businesses in Kochi, Kerala.",
+      "End-to-end taxation, statutory compliance, business formation, and financial advisory services for startups and enterprises in Kochi, Kerala.",
     url: "https://alvine-mu.vercel.app/Services",
     type: "website",
     images: [
