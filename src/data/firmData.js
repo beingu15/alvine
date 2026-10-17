@@ -148,7 +148,7 @@ export const firmInfo = {
     specialization: "Accounting, Direct & Indirect Taxation, Business Advisory & Professional Education",
     image: "/albert1.jpg",
     fallbackInitials: "AP",
-    bio: "Albert Pradeep is a qualified Chartered Accountant, US Chartered Management Accountant (CMA), and entrepreneur with over five years of experience in accounting, taxation, business advisory, and professional education. As a Freelance Accounts and Taxation Consultant and CMS Faculty, he has provided practical financial solutions while mentoring aspiring professionals. His expertise in business management, client relations, and strategic problem-solving has enabled him to build a strong professional network and trusted client relationships. He serves as Strategic Advisor - Consultant with the organization, contributing high-level industry knowledge and strategic direction to empower client growth.",
+    bio: "Albert Pradeep is a qualified Chartered Accountant, US Certified Management Accountant (CMA), and entrepreneur with over five years of experience in accounting, taxation, business advisory, and professional education. As a Freelance Accounts and Taxation Consultant and CMA Faculty, he has provided practical financial solutions while mentoring aspiring professionals. His expertise in business management, client relations, and strategic problem-solving has enabled him to build a strong professional network and trusted client relationships. He serves as Strategic Advisor - Consultant with the organization, contributing high-level industry knowledge and strategic direction to empower client growth.",
   },
 
   serviceCategories: [

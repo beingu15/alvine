@@ -1,40 +1,54 @@
+
 import About from "./AboutPage";
 import { firmInfo } from "@/data/firmData";
 
+const SITE_URL = "https://www.alvyne.in";
+const PAGE_URL = `${SITE_URL}/About`;
+const LOGO_URL = `${SITE_URL}/logo.png`;
+
 export const metadata = {
-  title: "About Us | Founding Partners & Strategic Advisors in Kochi, Kerala",
+  metadataBase: new URL(SITE_URL),
+
+  title:
+    "About ALVYNE | Founders & Tax Consultants in Kerala",
+
   description:
-    "Learn about ALVYNE Management Consultancy based in Kochi, Kerala. Meet our founding partners Nelson Joseph, Vyshnav Prakash, and strategic advisor Albert Pradeep (CA & US CMA). Delivering excellence in taxation, compliance, and financial advisory.",
-  keywords: [
-    "About ALVYNE Kochi",
-    "Financial Consultants Kochi Kerala",
-    "Nelson Joseph Senior Accountant",
-    "Vyshnav Prakash Tax Consultant",
-    "Albert Pradeep CA Kochi",
-    "Chartered Accountant Firm Kochi",
-    "Tax Advisory Kochi Kerala",
-    "Management Consultants Ernakulam",
-  ],
+    "Meet Nelson Joseph, Vyshnav Prakash, and strategic advisor Albert Pradeep at ALVYNE Management Consultancy. Learn about our expertise in ITR filing, tax planning, GST, accounting, compliance, and financial advisory.",
+
+  alternates: {
+    canonical: "/About",
+  },
+
   openGraph: {
-    title: `About ${firmInfo.name} | Financial Leadership in Kochi, Kerala`,
-    description:
-      "Founded in 2024, ALVYNE provides strategic financial guidance, taxation, compliance, and virtual CFO advisory across Kochi, Kerala, and beyond.",
-    url: "https://alvine-mu.vercel.app/About",
+    type: "website",
+    locale: "en_IN",
+    url: PAGE_URL,
     siteName: firmInfo.name,
+    title:
+      "About ALVYNE | Founders & Financial Advisory Team",
+    description:
+      "Meet the people behind ALVYNE Management Consultancy and discover our approach to taxation, GST, accounting, compliance, and financial advisory.",
     images: [
       {
-        url: "https://alvine-mu.vercel.app/logo.png",
+        url: LOGO_URL,
         width: 1200,
         height: 630,
-        alt: "ALVYNE Leadership Team Kochi Kerala",
+        alt: "ALVYNE Management Consultancy",
       },
     ],
   },
+
   twitter: {
     card: "summary_large_image",
-    title: `Meet the Leadership Team at ${firmInfo.name} Kochi`,
-    description: "Strategic taxation, compliance, and growth advisory led by qualified accountants and advisors in Kerala.",
-    images: ["https://alvine-mu.vercel.app/logo.png"],
+    title: "About ALVYNE | Founders & Advisory Team",
+    description:
+      "Meet the ALVYNE team and learn about our tax, GST, accounting, compliance, and financial advisory services.",
+    images: [LOGO_URL],
+  },
+
+  robots: {
+    index: true,
+    follow: true,
   },
 };
 

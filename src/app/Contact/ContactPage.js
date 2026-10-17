@@ -15,41 +15,41 @@ function ContactContent() {
   const prefilledService = searchParams.get('service') || searchParams.get('division') || '';
 
   const contactItems = [
-    { 
-      icon: BsGeoAlt, 
-      label: 'Office Address', 
+    {
+      icon: BsGeoAlt,
+      label: 'Office Address',
       info: firmInfo.contact.address,
       actionText: 'View on Google Maps',
       actionHref: firmInfo.contact.googleBusinessLink,
       badge: 'Headquarters'
     },
-    { 
-      icon: BsEnvelopeOpen, 
-      label: 'Email Inquiries', 
+    {
+      icon: BsEnvelopeOpen,
+      label: 'Email Inquiries',
       info: firmInfo.contact.email,
       actionText: 'Send Email',
       actionHref: `mailto:${firmInfo.contact.email}`,
       badge: 'Official Desk'
     },
-    { 
-      icon: BsPhoneVibrate, 
-      label: 'Direct Phone (Primary)', 
+    {
+      icon: BsPhoneVibrate,
+      label: 'Direct Phone (Primary)',
       info: firmInfo.contact.phoneDisplay,
       actionText: `Call ${firmInfo.contact.phoneDisplay}`,
       actionHref: `tel:${firmInfo.contact.phone}`,
       badge: 'Mon-Sat 9AM-6PM'
     },
-    { 
-      icon: BsPhoneVibrate, 
-      label: 'Direct Phone (Alternate)', 
+    {
+      icon: BsPhoneVibrate,
+      label: 'Direct Phone (Alternate)',
       info: firmInfo.contact.secondaryPhoneDisplay,
       actionText: `Call ${firmInfo.contact.secondaryPhoneDisplay}`,
       actionHref: `tel:${firmInfo.contact.secondaryPhone}`,
       badge: 'Support Line'
     },
-    { 
-      icon: FaWhatsapp, 
-      label: 'WhatsApp Advisory', 
+    {
+      icon: FaWhatsapp,
+      label: 'WhatsApp Advisory',
       info: firmInfo.contact.whatsappDisplay,
       actionText: 'Start WhatsApp Chat',
       actionHref: firmInfo.socialLinks.whatsapp,
@@ -68,12 +68,12 @@ function ContactContent() {
           src="/slide3.jpg"
           alt="Contact ALVYNE"
           fill
-          style={{ objectFit: "cover" }} 
-          className="absolute z-0 brightness-40 contrast-110"
+          style={{ objectFit: "cover" }}
+          className="absolute z-0 brightness-100 contrast-110"
           priority
         />
         <div className="absolute inset-0 bg-gradient-to-t from-[#050911] via-black/60 to-black/75" />
-        
+
         <div className="relative z-10 text-center text-white px-4 sm:px-6 mt-12 sm:mt-16 max-w-4xl mx-auto">
           <motion.div
             initial={{ opacity: 0, y: -20 }}
@@ -86,9 +86,9 @@ function ContactContent() {
             <span>{firmInfo.tagline}</span>
           </motion.div>
 
-          <motion.h1 
-            initial={{ opacity: 0, y: 20 }} 
-            animate={{ opacity: 1, y: 0 }} 
+          <motion.h1
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.1 }}
             className="text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-black tracking-tight"
           >
@@ -96,8 +96,8 @@ function ContactContent() {
           </motion.h1>
 
           <motion.p
-            initial={{ opacity: 0, y: 20 }} 
-            animate={{ opacity: 1, y: 0 }} 
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
             className="text-xs sm:text-sm md:text-base lg:text-lg text-gray-300 mt-3 sm:mt-4 max-w-2xl mx-auto leading-relaxed px-2"
           >
@@ -143,7 +143,7 @@ function ContactContent() {
                 {contactItems.map((item, index) => {
                   const Icon = item.icon;
                   return (
-                    <motion.a 
+                    <motion.a
                       key={index}
                       href={item.actionHref}
                       target={item.actionHref.startsWith('http') ? '_blank' : undefined}
