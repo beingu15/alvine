@@ -89,6 +89,7 @@ const Footer = () => {
                 { name: 'Full Services Catalog', href: '/Services' },
                 { name: 'Why Choose Alvyne', href: '/About#why-choose-us' },
                 { name: 'Contact & Inquiry', href: '/Contact' },
+                { name: 'Terms & Conditions', href: '/Terms' },
               ].map((link) => (
                 <li key={link.href}>
                   <Link
@@ -193,6 +194,10 @@ const Footer = () => {
             <span>Established {firmInfo.establishedYear}</span>
             <span className="text-[#FFD700]">•</span>
             <span>Tagline: {firmInfo.tagline}</span>
+            <span className="text-[#FFD700]">•</span>
+            <Link href="/Terms" className="hover:text-[#FFD700] transition">
+              Terms & Conditions
+            </Link>
             <span className="text-[#FFD700]">•</span>
             <Link href="/Contact" className="hover:text-[#FFD700] transition">
               Client Support

@@ -16,12 +16,12 @@ import {
   FaCompass,
   FaArrowRight
 } from 'react-icons/fa';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import { firmInfo } from '@/data/firmData';
 import Link from 'next/link';
 
 export default function AboutPage() {
-  const [activeTab, setActiveTab] = useState('all');
+  const [activeTab, setActiveTab] = useState('vision');
 
   return (
     <div className="bg-[#050911] text-white min-h-screen overflow-x-hidden">
@@ -144,94 +144,128 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* Vision & Mission Cards */}
-      <section className="py-12 sm:py-16 bg-[#070d18] border-y border-white/10 px-4 sm:px-6">
-        <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-5 sm:gap-8">
-          {/* Vision */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="p-6 sm:p-8 md:p-10 rounded-2xl sm:rounded-3xl bg-gradient-to-br from-[#10192b] to-[#0a101d] border border-white/10 hover:border-[#FFD700]/40 shadow-xl transition-all"
-          >
-            <div className="w-11 h-11 sm:w-14 sm:h-14 rounded-2xl bg-[#FFD700]/10 border border-[#FFD700]/30 flex items-center justify-center text-[#FFD700] mb-4 sm:mb-6">
-              <FaBullseye className="w-5 h-5 sm:w-7 sm:h-7" />
-            </div>
-            <h3 className="text-xl sm:text-2xl font-bold text-white mb-2 sm:mb-3">Our Vision</h3>
-            <p className="text-gray-300 text-xs sm:text-sm md:text-base leading-relaxed">
-              {firmInfo.vision}
-            </p>
-          </motion.div>
+      {/* Vision & Mission Section */}
+      <section id="vision-mission" className="py-12 sm:py-16 bg-[#070d18] border-y border-white/10 px-4 sm:px-6">
+        <div className="max-w-7xl mx-auto">
+          {/* Desktop View: Side-by-Side Cards (hidden on mobile, visible on md+) */}
+          <div className="hidden md:grid md:grid-cols-2 gap-5 sm:gap-8">
+            {/* Vision */}
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              className="p-6 sm:p-8 md:p-10 rounded-2xl sm:rounded-3xl bg-gradient-to-br from-[#10192b] to-[#0a101d] border border-white/10 hover:border-[#FFD700]/40 shadow-xl transition-all"
+            >
+              <div className="w-11 h-11 sm:w-14 sm:h-14 rounded-2xl bg-[#FFD700]/10 border border-[#FFD700]/30 flex items-center justify-center text-[#FFD700] mb-4 sm:mb-6">
+                <FaBullseye className="w-5 h-5 sm:w-7 sm:h-7" />
+              </div>
+              <h3 className="text-xl sm:text-2xl font-bold text-white mb-2 sm:mb-3">Our Vision</h3>
+              <p className="text-gray-300 text-xs sm:text-sm md:text-base leading-relaxed">
+                {firmInfo.vision}
+              </p>
+            </motion.div>
 
-          {/* Mission */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.1 }}
-            className="p-6 sm:p-8 md:p-10 rounded-2xl sm:rounded-3xl bg-gradient-to-br from-[#10192b] to-[#0a101d] border border-white/10 hover:border-[#FFD700]/40 shadow-xl transition-all"
-          >
-            <div className="w-11 h-11 sm:w-14 sm:h-14 rounded-2xl bg-[#FFD700]/10 border border-[#FFD700]/30 flex items-center justify-center text-[#FFD700] mb-4 sm:mb-6">
-              <FaRocket className="w-5 h-5 sm:w-6 sm:h-6" />
-            </div>
-            <h3 className="text-xl sm:text-2xl font-bold text-white mb-2 sm:mb-3">Our Mission</h3>
-            <p className="text-gray-300 text-xs sm:text-sm md:text-base leading-relaxed">
-              {firmInfo.mission}
-            </p>
-          </motion.div>
+            {/* Mission */}
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.1 }}
+              className="p-6 sm:p-8 md:p-10 rounded-2xl sm:rounded-3xl bg-gradient-to-br from-[#10192b] to-[#0a101d] border border-white/10 hover:border-[#FFD700]/40 shadow-xl transition-all"
+            >
+              <div className="w-11 h-11 sm:w-14 sm:h-14 rounded-2xl bg-[#FFD700]/10 border border-[#FFD700]/30 flex items-center justify-center text-[#FFD700] mb-4 sm:mb-6">
+                <FaRocket className="w-5 h-5 sm:w-6 sm:h-6" />
+              </div>
+              <h3 className="text-xl sm:text-2xl font-bold text-white mb-2 sm:mb-3">Our Mission</h3>
+              <p className="text-gray-300 text-xs sm:text-sm md:text-base leading-relaxed">
+                {firmInfo.mission}
+              </p>
+            </motion.div>
+          </div>
+
+          {/* Mobile View: Single Card with Interactive Selectable Tabs (visible on mobile, hidden on md+) */}
+          <div className="block md:hidden">
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              className="p-6 rounded-2xl bg-gradient-to-br from-[#10192b] to-[#0a101d] border border-white/10 shadow-xl"
+            >
+              {/* Selectable Tabs */}
+              <div className="flex p-1 rounded-xl bg-white/5 border border-white/10 mb-6">
+                <button
+                  type="button"
+                  onClick={() => setActiveTab('vision')}
+                  className={`flex-1 flex items-center justify-center gap-2 py-2.5 rounded-lg text-xs font-bold transition-all cursor-pointer ${activeTab === 'vision'
+                      ? 'bg-gradient-to-r from-[#FFD700] to-[#FFA500] text-black shadow-md'
+                      : 'text-gray-400 hover:text-white'
+                    }`}
+                  aria-selected={activeTab === 'vision'}
+                  role="tab"
+                >
+                  <FaBullseye className={`w-3.5 h-3.5 ${activeTab === 'vision' ? 'text-black' : 'text-[#FFD700]'}`} />
+                  <span>Our Vision</span>
+                </button>
+                <button
+                  type="button"
+                  onClick={() => setActiveTab('mission')}
+                  className={`flex-1 flex items-center justify-center gap-2 py-2.5 rounded-lg text-xs font-bold transition-all cursor-pointer ${activeTab === 'mission'
+                      ? 'bg-gradient-to-r from-[#FFD700] to-[#FFA500] text-black shadow-md'
+                      : 'text-gray-400 hover:text-white'
+                    }`}
+                  aria-selected={activeTab === 'mission'}
+                  role="tab"
+                >
+                  <FaRocket className={`w-3.5 h-3.5 ${activeTab === 'mission' ? 'text-black' : 'text-[#FFD700]'}`} />
+                  <span>Our Mission</span>
+                </button>
+              </div>
+
+              {/* Tab Content */}
+              <AnimatePresence mode="wait">
+                {activeTab === 'vision' ? (
+                  <motion.div
+                    key="vision"
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: -10 }}
+                    transition={{ duration: 0.2 }}
+                  >
+                    <div className="w-11 h-11 rounded-2xl bg-[#FFD700]/10 border border-[#FFD700]/30 flex items-center justify-center text-[#FFD700] mb-4">
+                      <FaBullseye className="w-5 h-5" />
+                    </div>
+                    <h3 className="text-xl font-bold text-white mb-2">Our Vision</h3>
+                    <p className="text-gray-300 text-xs sm:text-sm leading-relaxed">
+                      {firmInfo.vision}
+                    </p>
+                  </motion.div>
+                ) : (
+                  <motion.div
+                    key="mission"
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: -10 }}
+                    transition={{ duration: 0.2 }}
+                  >
+                    <div className="w-11 h-11 rounded-2xl bg-[#FFD700]/10 border border-[#FFD700]/30 flex items-center justify-center text-[#FFD700] mb-4">
+                      <FaRocket className="w-5 h-5" />
+                    </div>
+                    <h3 className="text-xl font-bold text-white mb-2">Our Mission</h3>
+                    <p className="text-gray-300 text-xs sm:text-sm leading-relaxed">
+                      {firmInfo.mission}
+                    </p>
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </motion.div>
+          </div>
         </div>
       </section>
 
-      {/* Our Journey & Founder Story */}
-      <section className="py-14 sm:py-20 px-4 sm:px-6 max-w-7xl mx-auto">
-        <div className="space-y-8 sm:space-y-12 md:space-y-16">
-          {/* Journey */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="p-5 sm:p-8 md:p-12 rounded-2xl sm:rounded-3xl bg-gradient-to-r from-[#0d1424] via-[#090f1a] to-[#0d1424] border border-white/10"
-          >
-            <span className="text-[10px] sm:text-xs font-bold text-[#FFD700] uppercase tracking-widest block mb-2">
-              The Evolution
-            </span>
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-black text-white mb-4 sm:mb-6">
-              Our Journey
-            </h2>
-            <div className="space-y-3 sm:space-y-4 text-gray-300 text-xs sm:text-sm md:text-base leading-relaxed max-w-5xl whitespace-pre-line">
-              {firmInfo.about.journey}
-            </div>
-          </motion.div>
-
-          {/* Founder Story */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="p-5 sm:p-8 md:p-12 rounded-2xl sm:rounded-3xl bg-gradient-to-r from-[#0d1424] via-[#090f1a] to-[#0d1424] border border-[#FFD700]/20 relative overflow-hidden"
-          >
-            <div className="absolute top-0 right-0 w-80 h-80 bg-[#FFD700]/5 rounded-full blur-3xl pointer-events-none" />
-
-            <div className="relative z-10">
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#FFD700]/10 border border-[#FFD700]/30 text-[#FFD700] text-[10px] sm:text-xs font-bold uppercase tracking-wider mb-3 sm:mb-4">
-                Origin Story
-              </div>
-              <h2 className="text-2xl sm:text-3xl md:text-4xl font-black text-white mb-4 sm:mb-6">
-                The Brainchild of Three Visionary Partners
-              </h2>
-              <div className="space-y-3 sm:space-y-4 text-gray-300 text-xs sm:text-sm md:text-base leading-relaxed max-w-5xl whitespace-pre-line">
-                {firmInfo.about.founderStory}
-              </div>
-            </div>
-          </motion.div>
-        </div>
-      </section>
-
-      {/* Leadership & Founders Section */}
-      <section className="py-14 sm:py-20 bg-[#070b14] border-t border-white/10 px-4 sm:px-6">
+      {/* Leadership & Founders Section (Positioned directly after Mission & Vision) */}
+      <section id="founders" className="py-14 sm:py-20 bg-[#050911] border-b border-white/10 px-4 sm:px-6">
         <div className="max-w-7xl mx-auto">
           <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-16">
             <span className="text-[10px] sm:text-xs font-bold text-[#FFD700] uppercase tracking-widest block mb-2">
@@ -363,101 +397,180 @@ export default function AboutPage() {
           {/* Strategic Advisor Section */}
           {firmInfo.strategicAdvisor && (
             <div className="mt-14 sm:mt-20 pt-12 sm:pt-16 border-t border-white/10">
-              <div className="text-center max-w-3xl mx-auto mb-8 sm:mb-12">
+              <div className="text-left max-w-4xl mx-auto mb-8 sm:mb-12">
                 <span className="text-[10px] sm:text-xs font-bold text-[#FFD700] uppercase tracking-widest block mb-2">
                   Advisory Leadership
                 </span>
                 <h3 className="text-2xl sm:text-3xl md:text-4xl font-black text-white">
                   Strategic Advisor <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#FFD700] via-yellow-300 to-[#FFA500]">- Consultant</span>
                 </h3>
-                <p className="mt-2 sm:mt-3 text-xs sm:text-sm md:text-base text-gray-300 px-2">
+                <p className="mt-2 sm:mt-3 text-xs sm:text-sm md:text-base text-gray-300 max-w-2xl">
                   Providing strategic oversight, corporate financial governance, and high-level business advisory.
                 </p>
               </div>
 
+              {/* Modern Clickable Strategic Advisor Card */}
               <motion.div
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6 }}
-                className="max-w-4xl mx-auto bg-gradient-to-br from-[#0e172a] via-[#0d1424] to-[#080d16] border border-[#FFD700]/30 hover:border-[#FFD700]/60 rounded-2xl sm:rounded-3xl overflow-hidden shadow-2xl transition-all duration-300 flex flex-col md:flex-row items-stretch"
+                className="max-w-4xl mx-auto"
               >
-                {/* Advisor Photo */}
+                <Link
+                  href="/albert-pradeep"
+                  className="group block relative bg-gradient-to-br from-[#0e172a] via-[#0d1424] to-[#080d16] border border-[#FFD700]/30 hover:border-[#FFD700] rounded-2xl sm:rounded-3xl overflow-hidden shadow-2xl hover:shadow-[0_20px_50px_rgba(255,215,0,0.18)] transition-all duration-500 cursor-pointer"
+                >
+                  {/* Ambient inner glow */}
+                  <div className="absolute -top-24 -right-24 w-80 h-80 bg-[#FFD700]/10 rounded-full blur-3xl pointer-events-none group-hover:bg-[#FFD700]/25 transition-all duration-700" />
 
-                <div className="relative w-full md:w-5/12 h-[300px] sm:h-[380px] md:h-auto md:min-h-[450px] bg-gradient-to-b from-[#162035] to-[#0d1424] overflow-hidden">
-                  <Image
-                    src={firmInfo.strategicAdvisor.image}
-                    alt={firmInfo.strategicAdvisor.name}
-                    fill
-                    sizes="(max-width: 767px) 100vw, 42vw"
-                    className="object-cover object-[center_25%] hover:scale-105 transition-transform duration-500"
-                    priority={false}
-                  />
+                  <div className="flex flex-col md:flex-row items-stretch relative z-10">
+                    {/* Advisor Photo with Modern Sculpted Shape */}
+                    <div className="relative w-full md:w-5/12 h-[320px] sm:h-[380px] md:h-auto md:min-h-[440px] bg-gradient-to-br from-[#162035] via-[#10192b] to-[#0d1424] overflow-hidden flex items-center justify-center p-3 sm:p-5">
+                      <div
+                        aria-hidden="true"
+                        className="absolute inset-x-6 top-4 bottom-3 border border-[#FFD700]/40 transition-transform duration-700 group-hover:rotate-2 sm:inset-x-8 sm:top-6 sm:bottom-4"
+                        style={{
+                          borderRadius: '58% 42% 38% 62% / 42% 38% 62% 58%',
+                        }}
+                      />
 
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#0d1424]/70 via-transparent to-transparent md:bg-gradient-to-r md:from-transparent md:to-[#0d1424]/80" />
+                      <div
+                        className="absolute inset-x-8 top-3 bottom-2 overflow-hidden shadow-2xl transition-all duration-700 group-hover:scale-[1.02] sm:inset-x-10 sm:top-5 sm:bottom-3"
+                        style={{
+                          borderRadius: '58% 42% 38% 62% / 42% 38% 62% 58%',
+                        }}
+                      >
+                        <Image
+                          src={firmInfo.strategicAdvisor.image}
+                          alt={firmInfo.strategicAdvisor.name}
+                          fill
+                          sizes="(max-width: 767px) 100vw, 42vw"
+                          className="object-cover object-[center_20%] group-hover:scale-105 transition-transform duration-700 ease-out"
+                          priority={false}
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-t from-[#0d1424] via-[#0d1424]/10 to-transparent" />
+                      </div>
 
-                  <div className="absolute top-3 left-3 sm:top-4 sm:left-4 z-10">
-                    <span className="px-2.5 py-1 sm:px-3 sm:py-1 rounded-full bg-black/60 backdrop-blur-md border border-[#FFD700]/40 text-[#FFD700] text-[10px] sm:text-xs font-bold uppercase tracking-wider">
-                      Strategic Advisor
-                    </span>
-                  </div>
-                </div>
-
-
-                {/* Advisor Details */}
-                <div className="md:w-7/12 p-5 sm:p-8 md:p-10 flex flex-col justify-between">
-                  <div>
-                    <div className="flex items-center justify-between mb-2 sm:mb-3">
-                      <span className="text-[10px] sm:text-xs font-semibold px-2.5 py-0.5 sm:px-3 sm:py-1 rounded-full bg-[#FFD700]/15 border border-[#FFD700]/30 text-[#FFD700]">
-                        {firmInfo.strategicAdvisor.experience}
-                      </span>
-                      <span className="text-[10px] sm:text-xs text-gray-400 font-medium">
-                        Associate & Faculty
-                      </span>
-                    </div>
-
-                    <h4 className="text-xl sm:text-2xl md:text-3xl font-extrabold text-white">
-                      {firmInfo.strategicAdvisor.name}
-                    </h4>
-
-                    <p className="text-xs sm:text-sm font-semibold text-[#FFD700] mt-1">
-                      {firmInfo.strategicAdvisor.designation}
-                    </p>
-
-                    <div className="mt-2.5 sm:mt-3 flex flex-wrap gap-1 sm:gap-1.5">
-                      {firmInfo.strategicAdvisor.qualifications.map((q, qIdx) => (
-                        <span key={qIdx} className="text-[10px] sm:text-[11px] px-2 py-0.5 sm:px-2.5 sm:py-0.5 rounded-md bg-white/5 border border-white/10 text-gray-300">
-                          {q}
+                      {/* Top Badges */}
+                      <div className="absolute top-4 left-4 sm:top-5 sm:left-5 z-10">
+                        <span className="px-2.5 py-1 sm:px-3 sm:py-1 rounded-full bg-[#090e18]/90 backdrop-blur-md border border-[#FFD700]/40 text-[#FFD700] text-[9px] sm:text-[10px] font-semibold uppercase tracking-[0.15em] shadow-lg">
+                          Strategic Advisor
                         </span>
-                      ))}
+                      </div>
+
+                      {/* Bottom Quick Badge */}
+                      <div className="absolute bottom-4 right-4 sm:bottom-5 sm:right-5 z-10">
+                        <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#090e18]/90 backdrop-blur-md border border-white/10 text-[9px] sm:text-[10px] text-gray-200 font-semibold shadow-lg">
+                          <span className="text-[#FFD700]">CA & US CMA</span>
+                        </span>
+                      </div>
                     </div>
 
-                    <div className="mt-3.5 sm:mt-5 pt-3 sm:pt-4 border-t border-white/10">
-                      <p className="text-[10px] sm:text-xs text-gray-400 font-semibold uppercase tracking-wider mb-1">
-                        Specialization:
-                      </p>
-                      <p className="text-xs text-gray-300 leading-relaxed mb-3 sm:mb-4">
-                        {firmInfo.strategicAdvisor.specialization}
-                      </p>
-                      <p className="text-xs sm:text-sm text-gray-300 leading-relaxed">
-                        {firmInfo.strategicAdvisor.bio}
-                      </p>
+                    {/* Advisor Details */}
+                    <div className="md:w-7/12 p-5 sm:p-8 md:p-10 flex flex-col justify-between">
+                      <div>
+                        {/* Top row with Category and Profile Link Pill */}
+                        <div className="flex items-center justify-between gap-2 mb-3">
+                          <span className="text-[10px] sm:text-xs font-semibold px-2.5 py-0.5 sm:px-3 sm:py-1 rounded-full bg-[#FFD700]/15 border border-[#FFD700]/30 text-[#FFD700]">
+                            {firmInfo.strategicAdvisor.experience}
+                          </span>
+
+                          <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/5 group-hover:bg-[#FFD700] text-gray-300 group-hover:text-black border border-white/10 group-hover:border-[#FFD700] text-[10px] sm:text-xs font-bold uppercase tracking-wider transition-all duration-300 shadow-sm">
+                            <span>View Profile</span>
+                            <FaArrowRight size={9} className="group-hover:translate-x-1 transition-transform" />
+                          </span>
+                        </div>
+
+                        <h4 className="text-2xl sm:text-3xl font-extrabold text-white group-hover:text-[#FFD700] transition-colors">
+                          {firmInfo.strategicAdvisor.name}
+                        </h4>
+
+                        <p className="text-xs sm:text-sm font-semibold text-[#FFD700] mt-1">
+                          {firmInfo.strategicAdvisor.designation}
+                        </p>
+
+                        <div className="mt-2.5 sm:mt-3 flex flex-wrap gap-1 sm:gap-1.5">
+                          {firmInfo.strategicAdvisor.qualifications.map((q, qIdx) => (
+                            <span key={qIdx} className="text-[10px] sm:text-[11px] px-2 py-0.5 sm:px-2.5 sm:py-0.5 rounded-md bg-white/5 border border-white/10 text-gray-300 font-medium">
+                              {q}
+                            </span>
+                          ))}
+                        </div>
+
+                        <div className="mt-3.5 sm:mt-5 pt-3 sm:pt-4 border-t border-white/10">
+                          <p className="text-[10px] sm:text-xs text-gray-400 font-semibold uppercase tracking-wider mb-1">
+                            Specialization:
+                          </p>
+                          <p className="text-xs text-gray-300 leading-relaxed mb-3">
+                            {firmInfo.strategicAdvisor.specialization}
+                          </p>
+                          <p className="text-xs sm:text-sm text-gray-400 leading-relaxed line-clamp-3">
+                            {firmInfo.strategicAdvisor.bio}
+                          </p>
+                        </div>
+                      </div>
+
+                      {/* Interactive Bottom Bar */}
+                      <div className="mt-5 sm:mt-6 pt-4 sm:pt-5 border-t border-white/10 flex items-center justify-between">
+                        <span className="text-[11px] sm:text-xs text-gray-400 group-hover:text-white transition">
+                          Click to explore full bio & advisory focus
+                        </span>
+
+                      </div>
                     </div>
                   </div>
-
-                  <div className="mt-5 sm:mt-6 pt-4 sm:pt-5 border-t border-white/10">
-                    <Link
-                      href="/Contact"
-                      className="inline-flex items-center justify-center gap-2 px-5 py-2.5 sm:px-6 sm:py-3 rounded-xl bg-[#FFD700] hover:bg-[#E6C200] text-black font-bold text-xs uppercase tracking-wider transition shadow-lg transform hover:scale-[1.02] w-full sm:w-auto"
-                    >
-                      <span>Consult with {firmInfo.strategicAdvisor.name.split(' ')[0]}</span>
-                      <FaArrowRight size={12} />
-                    </Link>
-                  </div>
-                </div>
+                </Link>
               </motion.div>
             </div>
           )}
+        </div>
+      </section>
+
+      {/* Our Journey & Founder Story */}
+      <section className="py-14 sm:py-20 bg-[#070d18] border-b border-white/10 px-4 sm:px-6">
+        <div className="max-w-7xl mx-auto space-y-8 sm:space-y-12 md:space-y-16">
+          {/* Journey */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="p-5 sm:p-8 md:p-12 rounded-2xl sm:rounded-3xl bg-gradient-to-r from-[#0d1424] via-[#090f1a] to-[#0d1424] border border-white/10"
+          >
+            <span className="text-[10px] sm:text-xs font-bold text-[#FFD700] uppercase tracking-widest block mb-2">
+              The Evolution
+            </span>
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-black text-white mb-4 sm:mb-6">
+              Our Journey
+            </h2>
+            <div className="space-y-3 sm:space-y-4 text-gray-300 text-xs sm:text-sm md:text-base leading-relaxed max-w-5xl whitespace-pre-line">
+              {firmInfo.about.journey}
+            </div>
+          </motion.div>
+
+          {/* Founder Story */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="p-5 sm:p-8 md:p-12 rounded-2xl sm:rounded-3xl bg-gradient-to-r from-[#0d1424] via-[#090f1a] to-[#0d1424] border border-[#FFD700]/20 relative overflow-hidden"
+          >
+            <div className="absolute top-0 right-0 w-80 h-80 bg-[#FFD700]/5 rounded-full blur-3xl pointer-events-none" />
+
+            <div className="relative z-10">
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#FFD700]/10 border border-[#FFD700]/30 text-[#FFD700] text-[10px] sm:text-xs font-bold uppercase tracking-wider mb-3 sm:mb-4">
+                Origin Story
+              </div>
+              <h2 className="text-2xl sm:text-3xl md:text-4xl font-black text-white mb-4 sm:mb-6">
+                The Brainchild of Three Visionary Partners
+              </h2>
+              <div className="space-y-3 sm:space-y-4 text-gray-300 text-xs sm:text-sm md:text-base leading-relaxed max-w-5xl whitespace-pre-line">
+                {firmInfo.about.founderStory}
+              </div>
+            </div>
+          </motion.div>
         </div>
       </section>
 

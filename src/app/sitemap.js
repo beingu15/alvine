@@ -18,5 +18,13 @@ export default function sitemap() {
       url: `${baseUrl}/Contact`,
       lastModified: new Date(),
     },
+    {
+      url: `${baseUrl}/Terms`,
+      lastModified: new Date(),
+    },
+    {
+      url: `${baseUrl}/albert-pradeep`,
+      lastModified: new Date(),
+    },
   ];
 }
