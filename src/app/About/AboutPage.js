@@ -24,7 +24,7 @@ export default function AboutPage() {
   const [activeTab, setActiveTab] = useState('all');
 
   return (
-    <div className="bg-[#050911] text-white min-h-screen">
+    <div className="bg-[#050911] text-white min-h-screen overflow-x-hidden">
       {/* Navbar */}
       <Navbar />
 
@@ -383,20 +383,26 @@ export default function AboutPage() {
                 className="max-w-4xl mx-auto bg-gradient-to-br from-[#0e172a] via-[#0d1424] to-[#080d16] border border-[#FFD700]/30 hover:border-[#FFD700]/60 rounded-2xl sm:rounded-3xl overflow-hidden shadow-2xl transition-all duration-300 flex flex-col md:flex-row items-stretch"
               >
                 {/* Advisor Photo */}
-                <div className="md:w-5/12 relative min-h-[260px] sm:min-h-[320px] md:min-h-full bg-gradient-to-b from-[#162035] to-[#0d1424] overflow-hidden">
+
+                <div className="relative w-full md:w-5/12 h-[300px] sm:h-[380px] md:h-auto md:min-h-[450px] bg-gradient-to-b from-[#162035] to-[#0d1424] overflow-hidden">
                   <Image
                     src={firmInfo.strategicAdvisor.image}
                     alt={firmInfo.strategicAdvisor.name}
                     fill
-                    className="object-cover object-top hover:scale-105 transition-transform duration-500"
+                    sizes="(max-width: 767px) 100vw, 42vw"
+                    className="object-cover object-[center_25%] hover:scale-105 transition-transform duration-500"
+                    priority={false}
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t md:bg-gradient-to-r from-[#0d1424] md:from-transparent to-transparent md:to-[#0d1424]/80" />
+
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#0d1424]/70 via-transparent to-transparent md:bg-gradient-to-r md:from-transparent md:to-[#0d1424]/80" />
+
                   <div className="absolute top-3 left-3 sm:top-4 sm:left-4 z-10">
                     <span className="px-2.5 py-1 sm:px-3 sm:py-1 rounded-full bg-black/60 backdrop-blur-md border border-[#FFD700]/40 text-[#FFD700] text-[10px] sm:text-xs font-bold uppercase tracking-wider">
                       Strategic Advisor
                     </span>
                   </div>
                 </div>
+
 
                 {/* Advisor Details */}
                 <div className="md:w-7/12 p-5 sm:p-8 md:p-10 flex flex-col justify-between">
